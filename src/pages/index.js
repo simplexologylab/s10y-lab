@@ -146,6 +146,6 @@ export const imageQuery = graphql`
           originalName
         }
       }
-    },
+    }
   }
 `;

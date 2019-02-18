@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import Layout from "../components/layout"
+import { Grommet, Box } from 'grommet';
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
@@ -20,35 +20,45 @@ class Projects extends React.Component {
     const groups = projects.filter(project => project.node.fields.slug.split("/").length === 3);
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Grommet>
         <SEO
           title="All projects"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        {groups.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm
-                  (1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                <Image 
-                  key={node.frontmatter.title} 
-                  fluid={node.frontmatter.image.childImageSharp.fluid} 
-                />
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
-      </Layout>
+        <Box pad={{"horizontal": "xlarge"}}>
+          <Box width="small">
+            <Link to="/">
+              <Img fluid={data.logo.childImageSharp.fluid} />
+            </Link>
+          
+          </Box>
+          <Box pad={{"horizontal": "xlarge"}}>
+            {groups.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug
+              return (
+                <div key={node.fields.slug}>
+                  <h3
+                    style={{
+                      marginBottom: rhythm
+                      (1 / 4),
+                    }}
+                  >
+                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    <Image 
+                      key={node.frontmatter.title} 
+                      fluid={node.frontmatter.image.childImageSharp.fluid} 
+                    />
+                      {title}
+                    </Link>
+                  </h3>
+                  <small>{node.frontmatter.date}</small>
+                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                </div>
+              )
+            })}
+          </Box>
+        </Box>
+      </Grommet>
     )
   }
 }
@@ -83,5 +93,21 @@ export const pageQuery = graphql`
         }
       }
     }
+    logo: file(relativePath: { eq: "logo.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          originalImg
+          originalName
+        }
+      }
+    },
   }
 `
