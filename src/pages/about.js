@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 import config from "../../static/site-config";
 import Menu from "../components/Menu";
-import Typer from '../components/Typer';
+import Typer from '../components/typer';
 import Sitemap from "../components/Sitemap";
 import Split from "../components/Text/Split";
 
