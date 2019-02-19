@@ -3,7 +3,7 @@ import { graphql, Link, navigate } from "gatsby"
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import {Grommet, Box, Heading, Paragraph, Button} from 'grommet';
+import {Grommet, Grid, Box, Heading, Paragraph, Button, ResponsiveContext} from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 
 const SiteHeading = styled(Button)`
@@ -13,6 +13,15 @@ const SiteHeading = styled(Button)`
 const TitleHeading = styled(Heading)`
   font-family: 'Shadows Into Light';
 `;
+
+const PostCard = ({title, description, image, slug}) => (
+  <Box background="dark-1" round>
+    <Box>{title}</Box>
+    {image && <Img fluid={image} />}
+    <Box>{description}</Box>
+    <Button label="open" onClick={() => navigate(slug)}/>
+  </Box>
+)
 
 class GroupPostsTemplate extends React.Component {
     render(){
@@ -32,8 +41,39 @@ class GroupPostsTemplate extends React.Component {
                 </Box>
               </Box>
               <Box pad={{"horizontal": "xlarge"}}>
+                <ResponsiveContext.Consumer>
+                  { size => (
+                    <Grid
+                      columns={["1/2", "1/2"]}
+                      gap={size}
+                    >
+                      {subPages.map(page => {
+                        if(page.node.frontmatter.image) {
+                          return (
+                            <PostCard
+                              key={page.id}
+                              title={page.node.fields.slug}
+                              description={page.node.excerpt}
+                              image={page.node.frontmatter.image.childImageSharp.fluid}
+                              slug={page.node.fields.slug}
+                            />
+                          )
+                        }
+                        return (
+                          <PostCard 
+                            key={page.id}
+                            title={page.node.fields.slug}
+                            description={page.node.excerpt}
+                            slug={page.node.fields.slug}
+                          />
+                        )
+                      })
+                      }
+                    </Grid>
+                  )}
+                </ResponsiveContext.Consumer>
               
-                {subPages.map(page => {
+                {/* {subPages.map(page => {
                     if(page.node.frontmatter.image) {
                         return (
                             <Link to={page.node.fields.slug} id={page.node.id}>
@@ -59,7 +99,7 @@ class GroupPostsTemplate extends React.Component {
                         </Box>
                       </Link>
                     )
-                })}
+                })} */}
               </Box>
             </Grommet>
         )
