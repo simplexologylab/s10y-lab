@@ -18,7 +18,6 @@ class PostTemplate extends React.Component {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    console.log('props', window.history);
     return (
       <Grommet>
         <Box>
