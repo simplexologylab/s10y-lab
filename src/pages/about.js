@@ -10,6 +10,7 @@ import Menu from "../components/Menu";
 import Typer from '../components/typer';
 import Sitemap from "../components/Sitemap";
 import Split from "../components/Text/Split";
+import ScrollMeter from "../components/ScrollMeter";
 
 const FontHeading = styled(Heading)`
   font-family: 'Shadows Into Light';
@@ -28,6 +29,7 @@ class AboutPage extends Component {
       <Grommet>
         <Helmet title={`About | ${config.siteTitle}`} />
         <Menu />
+        <ScrollMeter />
         <Box elevation="small">
           <Box margin="small" align="center">
             <FontHeading level="2" size="xlarge">make it simple</FontHeading>

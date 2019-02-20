@@ -1,11 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, navigate } from "gatsby"
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { Grommet, Box } from 'grommet';
+import { Grommet, Grid, Box, Button, Stack, Heading } from 'grommet';
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import Sitemap from '../components/Sitemap';
 import Menu from '../components/Menu';
 
@@ -17,7 +16,6 @@ const Image = styled(Img)`
 class Projects extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
     const projects = data.allMdx.edges
     const groups = projects.filter(project => project.node.fields.slug.split("/").length === 3);
 
@@ -28,32 +26,30 @@ class Projects extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <Menu />
-        <Box pad={{"horizontal": "xlarge"}}>
-          <Box pad={{"horizontal": "xlarge"}}>
-            {groups.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <div key={node.fields.slug}>
-                  <h3
-                    style={{
-                      marginBottom: rhythm
-                      (1 / 4),
-                    }}
-                  >
-                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+        <Box pad="small">
+          <Grid
+            columns={{
+              count: 2,
+              size: "auto"
+            }}
+            gap="small"
+          >
+            {groups.map(({ node }) => (
+                <Button onClick={() => navigate(node.fields.slug)}>
+                  <Box>
+                    <Stack>
                       <Image 
                         key={node.frontmatter.title} 
-                        fluid={node.frontmatter.image.childImageSharp.fluid} 
-                      />
-                      {title}
-                    </Link>
-                  </h3>
-                  <small>{node.frontmatter.date}</small>
-                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-                </div>
+                        fluid={node.frontmatter.image.childImageSharp.fluid} />
+                      <Heading level="2" size="medium">
+                        {node.frontmatter.title}
+                      </Heading>
+                    </Stack>
+                  </Box>
+                </Button>
               )
-            })}
-          </Box>
+            )}
+          </Grid>
         </Box>
         <Sitemap />
       </Grommet>

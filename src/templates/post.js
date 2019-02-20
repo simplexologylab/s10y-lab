@@ -5,6 +5,8 @@ import { Grommet, Box, Button, Heading, ResponsiveContext } from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 import styled from 'styled-components';
 
+import ScrollMeter from '../components/ScrollMeter';
+
 const SiteHeading = styled(Button)`
   font-family: 'Rajdhani';
 `;
@@ -20,15 +22,14 @@ class PostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     return (
       <Grommet>
-        <Box>
-          <Box direction="row" margin="xsmall">
-            <Button plain label="back" icon={<LinkPrevious />} onClick={() => window.history.back()} />
-            <Box align="end" jusify="end" margin="xsmall" fill>
-              <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
-              <TitleHeading level='1' size="small" margin="small">{post.frontmatter.title}</TitleHeading>                  
-            </Box>
+        <Box direction="row" margin="xsmall">
+          <Button plain label="back" icon={<LinkPrevious />} onClick={() => window.history.back()} />
+          <Box align="end" jusify="end" margin="xsmall" fill>
+            <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
+            <TitleHeading level='1' size="small" margin="small">{post.frontmatter.title}</TitleHeading>                  
           </Box>
         </Box>
+        <ScrollMeter />
         <ResponsiveContext.Consumer>
           { size => (
             <Box>

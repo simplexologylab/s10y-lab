@@ -16,11 +16,16 @@ const TitleHeading = styled(Heading)`
   font-family: 'Shadows Into Light';
 `;
 
+const ImageBox = styled(Box)`
+  height: 24vh;
+  object-fit: cover;
+`;
+
 const PostCard = ({title, description, image, slug}) => (
   <Button onClick={() => navigate(slug)}>
       <Box flex background="light-2" round elevation="medium">
         <Heading margin="small" size="small">{title}</Heading>
-        <Box flex>{image && <Img fluid={image} />}</Box>
+        <ImageBox height="medium">{image && <Img fluid={image} />}</ImageBox>
         <Paragraph margin="none">{description}</Paragraph>
       </Box>
   </Button>
@@ -54,7 +59,7 @@ class GroupPostsTemplate extends React.Component {
               </Box>
                 <ResponsiveContext.Consumer>
                   { size => (
-                    <Box pad={size}>
+                    <Box pad="medium">
                       <Grid
                         columns={this.resizeGrid(size)}
                         gap="medium"
