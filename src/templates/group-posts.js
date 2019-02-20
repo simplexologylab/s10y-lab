@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import {Grommet, Grid, Box, Heading, Paragraph, Button, ResponsiveContext} from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 
+import Sitemap from '../components/Sitemap';
+
 const SiteHeading = styled(Button)`
   font-family: 'Rajdhani';
 `;
@@ -16,7 +18,7 @@ const TitleHeading = styled(Heading)`
 
 const PostCard = ({title, description, image, slug}) => (
   <Button onClick={() => navigate(slug)}>
-      <Box background="light-2" round elevation="medium">
+      <Box flex background="light-2" round elevation="medium">
         <Heading margin="small" size="small">{title}</Heading>
         <Box flex>{image && <Img fluid={image} />}</Box>
         <Paragraph margin="none">{description}</Paragraph>
@@ -83,6 +85,7 @@ class GroupPostsTemplate extends React.Component {
                     </Box>
                   )}
                 </ResponsiveContext.Consumer>
+                <Sitemap />
             </Grommet>
         )
     } 

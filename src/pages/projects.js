@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { Grommet, Box } from 'grommet';
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import Sitemap from '../components/Sitemap';
+import Menu from '../components/Menu';
 
 const Image = styled(Img)`
   height: 25vh;
@@ -25,13 +27,8 @@ class Projects extends React.Component {
           title="All projects"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
+        <Menu />
         <Box pad={{"horizontal": "xlarge"}}>
-          <Box width="small">
-            <Link to="/">
-              <Img fluid={data.logo.childImageSharp.fluid} />
-            </Link>
-          
-          </Box>
           <Box pad={{"horizontal": "xlarge"}}>
             {groups.map(({ node }) => {
               const title = node.frontmatter.title || node.fields.slug
@@ -44,10 +41,10 @@ class Projects extends React.Component {
                     }}
                   >
                     <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    <Image 
-                      key={node.frontmatter.title} 
-                      fluid={node.frontmatter.image.childImageSharp.fluid} 
-                    />
+                      <Image 
+                        key={node.frontmatter.title} 
+                        fluid={node.frontmatter.image.childImageSharp.fluid} 
+                      />
                       {title}
                     </Link>
                   </h3>
@@ -58,6 +55,7 @@ class Projects extends React.Component {
             })}
           </Box>
         </Box>
+        <Sitemap />
       </Grommet>
     )
   }
