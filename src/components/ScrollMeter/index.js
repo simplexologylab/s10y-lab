@@ -13,22 +13,24 @@ const Fixed = styled(Box)`
 `;
 
 function useScroll(onScroll = _ => _) {
-  let [scroll, setScroll] = useState(window.scrollY);
-  const scrollHeight = document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  let [scroll, setScroll] = useState(0);
+  let scrollHeight = 1;
+
+  if (typeof document !== "undefined") {
+    scrollHeight = document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  }
 
   function handleScroll() {
     setScroll(window.scrollY);
     onScroll();
   }
 
-  function resetScroll() {
-    setScroll(0);
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    })
   }
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  })
 
   return scroll/scrollHeight  * 100;
 }
