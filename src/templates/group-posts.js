@@ -23,7 +23,7 @@ const ImageBox = styled(Box)`
 
 const PostCard = ({title, description, image, slug}) => (
   <Button onClick={() => navigate(slug)}>
-      <Box flex background="light-2" round elevation="medium">
+      <Box flex background="dark-3" round elevation="medium">
         <Heading margin="small" size="small">{title}</Heading>
         <ImageBox height="medium">{image && <Img fluid={image} />}</ImageBox>
         <Paragraph margin="none">{description}</Paragraph>

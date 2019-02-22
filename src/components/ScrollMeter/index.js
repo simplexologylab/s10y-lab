@@ -5,11 +5,13 @@ import { Box, Meter} from 'grommet';
 
 const Fixed = styled(Box)`
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   width: 10vw;
+  max-width: 60px;
+  max-height: 60px;
   height: 10vw;
-  padding: 5px;
+  padding: 8px;
 `;
 
 function useScroll(onScroll = _ => _) {
