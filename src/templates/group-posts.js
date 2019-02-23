@@ -1,12 +1,20 @@
 import React from "react";
-import { graphql, navigate } from "gatsby"
+import { graphql, navigate, Link } from "gatsby"
 import Img from 'gatsby-image';
+import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import styled from 'styled-components';
 
-import {Grommet, Grid, Box, Heading, Paragraph, Button, ResponsiveContext} from 'grommet';
+import {Grommet, Grid, Box, Heading, Paragraph, Button, ResponsiveContext, Accordion, AccordionPanel} from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 
 import Sitemap from '../components/Sitemap';
+
+const ButtonBox = styled(Box)`
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  &:hover {
+    border-left: solid 5px #00ff00;
+  }
+`;
 
 const SiteHeading = styled(Button)`
   font-family: 'Rajdhani';
@@ -17,17 +25,22 @@ const TitleHeading = styled(Heading)`
 `;
 
 const ImageBox = styled(Box)`
-  height: 24vh;
   object-fit: cover;
 `;
 
 const PostCard = ({title, description, image, slug}) => (
   <Button onClick={() => navigate(slug)}>
-      <Box flex background="dark-3" round elevation="medium">
-        <Heading margin="small" size="small">{title}</Heading>
-        <ImageBox height="medium">{image && <Img fluid={image} />}</ImageBox>
-        <Paragraph margin="none">{description}</Paragraph>
-      </Box>
+    <ButtonBox 
+      round={{"size": "xsmall", "corner": "right"}} 
+      margin={{ "vertical": "small" }} 
+      background="dark-2"
+      alignContent="center"
+    >
+      <Grid columns={["1/3", "auto"]}>
+        <ImageBox>{image && <Img fluid={image} />}</ImageBox>
+        <Heading alignSelf="center" level="3" margin={{"vertical": "none", "horizontal": "small"}} size="small">{title}</Heading>
+      </Grid>
+    </ButtonBox>
   </Button>
 )
 
@@ -59,35 +72,43 @@ class GroupPostsTemplate extends React.Component {
               </Box>
                 <ResponsiveContext.Consumer>
                   { size => (
-                    <Box pad="medium">
+                    <Box>
                       <Grid
-                        columns={this.resizeGrid(size)}
-                        gap="medium"
+                        columns={(size !== "small") ? { count: 2, size: "auto" } : "auto"}
                       >
-                        {subPages.map(page => {
-                          if(page.node.frontmatter.image) {
-                            return (
-                              <PostCard
-                                key={page.id}
-                                title={page.node.frontmatter.title}
-                                description={page.node.frontmatter.description}
-                                image={page.node.frontmatter.image.childImageSharp.fluid}
-                                slug={page.node.fields.slug}
-                              />
-                            )
-                          }
-                          return (
-                            <PostCard 
-                              key={page.id}
-                              title={page.node.frontmatter.title}
-                              description={page.node.frontmatter.description}
-                              slug={page.node.fields.slug}
-                            />
-                          )
-                        })
-                        }
+                        <Box pad="small">
+                          <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
+                        </Box>
+                        <Box pad="medium">
+                          <Img fluid={pageInfo.frontmatter.image.childImageSharp.fluid} />
+                            {subPages.map(page => {
+                              if(page.node.frontmatter.image) {
+                                return (
+                                  <PostCard
+                                    key={page.id}
+                                    title={page.node.frontmatter.title}
+                                    description={page.node.frontmatter.description}
+                                    image={page.node.frontmatter.image.childImageSharp.fluid}
+                                    slug={page.node.fields.slug}
+                                  />
+                                )
+                              }
+                              return (
+                                <PostCard 
+                                  key={page.id}
+                                  title={page.node.frontmatter.title}
+                                  description={page.node.frontmatter.description}
+                                  slug={page.node.fields.slug}
+                                />
+                              )
+                            })
+                            }
+                        </Box>
                       </Grid>
                     </Box>
+                    
+                    
+                  
                   )}
                 </ResponsiveContext.Consumer>
                 <Sitemap />
@@ -119,15 +140,15 @@ query PostsBySlug($slug: String!) {
             title
             description
             image {
-                childImageSharp {
-                    fluid(maxWidth:600) {
-                        ...GatsbyImageSharpFluid
-                    }
+              childImageSharp {
+                  fluid(maxWidth:600) {
+                      ...GatsbyImageSharpFluid
                   }
                 }
               }
-            fields {
-              slug
+            }
+          fields {
+            slug
           }
         }
       }
@@ -135,12 +156,22 @@ query PostsBySlug($slug: String!) {
     mdx(
         fields: {slug: { eq: $slug}}
     ){
-        id
-        frontmatter {
-            title
-            description
-            date(formatString: "MMMM DD, YYYY")
+      id
+      frontmatter {
+        title
+        description
+        date(formatString: "MMMM DD, YYYY")
+        image {
+          childImageSharp {
+            fluid(maxWidth:600) {
+                ...GatsbyImageSharpFluid
+            }
+          }
         }
-    }
+      }
+      code {
+        body
+      }
+  }
   }
 `
