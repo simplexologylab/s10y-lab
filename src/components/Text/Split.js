@@ -26,13 +26,12 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
   <ResponsiveContext.Consumer>
     { size => (
       <Box background={dark && "dark-1"} pad={{"vertical": "medium"}}>
-      Try again
-      <Box>
+      {/* <Box>
         <Heading>{title}</Heading>
         <Paragraph>{text}</Paragraph>
         <Button label={buttonText} onClick={() => navigate(buttonLink)} />
-      </Box>
-        {/* <Grid
+      </Box> */}
+        <Grid
           fill
           columns={{ 
             count: (size === 'small') ? 1 : 2 ,
@@ -64,7 +63,7 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
               </Box>
             </>
           )}  
-        </Grid> */}
+        </Grid>
       </Box>
     )}
   </ResponsiveContext.Consumer>

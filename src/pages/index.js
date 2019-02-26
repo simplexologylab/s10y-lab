@@ -43,7 +43,7 @@ class Home extends React.Component {
             </HeroBox>
           </Stack>
         </Box>
-        <Box>
+        <Box gap="small">
           <TextSplit
             title="Get started"
             text="Explore and get inspired to learn something new, we'll make it as simple as possilbe."
