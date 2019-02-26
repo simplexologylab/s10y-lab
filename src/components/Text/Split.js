@@ -27,6 +27,11 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
     { size => (
       <Box background={dark && "dark-1"} pad={{"vertical": "medium"}}>
       Try again
+      <Box>
+        <Heading>{title}</Heading>
+        <Paragraph>{text}</Paragraph>
+        <Button label={buttonText} onClick={() => navigate(buttonLink)} />
+      </Box>
         {/* <Grid
           fill
           columns={{ 
