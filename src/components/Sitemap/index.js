@@ -1,5 +1,5 @@
 import React from 'react'
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import { Box, ResponsiveContext, Button } from 'grommet';
 import { Twitter, Mail } from 'grommet-icons';
 import styled from 'styled-components';
@@ -10,6 +10,10 @@ import SitemapName from './SitemapName';
 const PrivacyLink = styled(Button)`
   font-size: 10px;
 `;
+
+const ButtonLink = styled(Button)`
+  box-shadow: none;
+`; 
 
 export default () => (
   <ResponsiveContext.Consumer>
@@ -28,7 +32,7 @@ export default () => (
         </Box>
         <Box align="center" pad="xsmall">
           <Box direction='row' align="center" justify="center">
-            <Button icon={<Twitter size="small" />} href="https://twitter.com/simplexology" target="_blank" />
+            <ButtonLink icon={<Twitter size="small" />} href="https://twitter.com/simplexology" target="_blank" />
             <Button icon={<Mail size="small" />} onClick={() => navigate('/contact')} />
           </Box>
           <SitemapName />

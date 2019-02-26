@@ -7,8 +7,7 @@ const SitemapButton = styled(Button)`
   border-top: 2px solid grey;
 
   &:hover {
-    border-top: 3px solid black;
-    max-height: 16px;
+    font-size: 1.1em;
   }
 `;
 
