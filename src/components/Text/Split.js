@@ -26,7 +26,8 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
   <ResponsiveContext.Consumer>
     { size => (
       <Box background={dark && "dark-1"} pad={{"vertical": "medium"}}>
-        <Grid
+      Try again
+        {/* <Grid
           fill
           columns={{ 
             count: (size === 'small') ? 1 : 2 ,
@@ -58,7 +59,7 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
               </Box>
             </>
           )}  
-        </Grid>
+        </Grid> */}
       </Box>
     )}
   </ResponsiveContext.Consumer>
