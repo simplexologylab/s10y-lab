@@ -26,50 +26,56 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
   <ResponsiveContext.Consumer>
     { size => (
       <Box bacbkground={dark && "dark-1"} pad={{"vertical": "medium"}}>
-      {/* <Box>
-        <Heading>{title}</Heading>
-        <Paragraph>{text}</Paragraph>
-        <Button label={buttonText} onClick={() => navigate(buttonLink)} />
-      </Box> */}
-          {flip ? (
-            <Box direction={size === 'small' ? "column" : "row"}>
-              <Box justify="center" flex>
-                {(size === 'small') ? <Img fluid={image} /> : <RoundedImageLeft fluid={image} /> }
-              </Box>
-              <Box align="center" justify="center" pad={size}>
-                {title && <Heading>{title}</Heading>}
-                {size}
-                <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
-                {buttonText && <NavButton text={buttonText} link={buttonLink} />}
-              </Box>
+        {flip ? (
+          <Box direction={size === 'small' ? "column" : "row"}>
+            <Box justify="center" flex>
+              {(size === 'small') ? <Img fluid={image} /> : <RoundedImageLeft fluid={image} /> }
             </Box>
-            ) : (
-            <Box direction={size === 'small' ? "column" : "row"}>
-              <Box align="center" justify="center" pad={size}>
-                {title && <Heading>{title}</Heading>}
-                {size}
-                <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
-                {buttonText && <NavButton text={buttonText} link={buttonLink} />}
-              </Box>
-              <Box justify="center" flex>
-                {(size === 'small') ? <Img fluid={image} /> : <RoundedImageRight fluid={image} /> }
-              </Box>
+            <Box align="center" justify="center" pad={size}>
+              {title && <Heading>{title}</Heading>}
+              <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
+              {buttonText && <NavButton text={buttonText} link={buttonLink} />}
             </Box>
-          )}  
+          </Box>
+          ) : (
+          <Box direction={size === 'small' ? "column" : "row"}>
+            <Box align="center" justify="center" pad={size}>
+              {title && <Heading>{title}</Heading>}
+              <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
+              {buttonText && <NavButton text={buttonText} link={buttonLink} />}
+            </Box>
+            <Box justify="center" flex>
+              {(size === 'small') ? <Img fluid={image} /> : <RoundedImageRight fluid={image} /> }
+            </Box>
+          </Box>
+        )}  
       </Box>
     )}
   </ResponsiveContext.Consumer>
 )
 
 /* Working sample for usage
-<Split 
-  text="Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie."
-  image={this.props.data.hero.childImageSharp.fluid}
-  dark
+<TextSplit
+  title="Get started"
+  text="Explore and get inspired to learn something new, we'll make it as simple as possilbe."
+  image={data.rocks.childImageSharp.fluid}
+  buttonText="Go To Projects"
+  buttonLink="/projects"
 />
-<Split 
-  text="Lorem ipsum dolor amet ugh humblebrag pinterest vaporware, everyday carry hell of godard DIY before they sold out craft beer sriracha four dollar toast next level. Williamsburg stumptown gentrify photo booth occupy man bun. Cornhole gochujang whatever, la croix hella hoodie green juice hammock health goth migas ennui normcore austin. Freegan etsy roof party tattooed fixie."
-  image={this.props.data.hero.childImageSharp.fluid} 
+<TextSplit 
+  title="Who we are"
+  text="Just people who love seeing Science, Math, and Technology used in the real world and helping others realize it's not that complicated."
+  image={data.geometry.childImageSharp.fluid}
+  buttonText="Learn About Us"
+  buttonLink="/about"
   flip
+/>
+<TextSplit 
+  title="How can we help you?"
+  text="Check out our professional services or reach out directly to see how we can help you make something simple."
+  image={data.handshake.childImageSharp.fluid}
+  buttonText="Contact Us"
+  buttonLink="/contact"
+  dark
 />
 */

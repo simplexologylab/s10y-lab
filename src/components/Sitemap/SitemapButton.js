@@ -5,7 +5,6 @@ import { Button } from 'grommet';
 
 const SitemapButton = styled(Button)`
   border-top: 2px solid grey;
-  max-height: 14px;
 
   &:hover {
     border-top: 3px solid black;
