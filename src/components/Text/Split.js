@@ -31,15 +31,8 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
         <Paragraph>{text}</Paragraph>
         <Button label={buttonText} onClick={() => navigate(buttonLink)} />
       </Box> */}
-        <Grid
-          fill
-          columns={{ 
-            count: (size === 'small') ? 1 : 2 ,
-            size: "auto"
-          }}
-        >
           {flip ? (
-            <>
+            <Box direction="row">
               <Box justify="center">
                 {(size === 'small') ? <Img fluid={image} /> : <RoundedImageLeft fluid={image} /> }
               </Box>
@@ -49,7 +42,7 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
                 <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
                 {buttonText && <NavButton text={buttonText} link={buttonLink} />}
               </Box>
-            </>
+            </Box>
             ) : (
             <>
               <Box align="center" justify="center" pad={size}>
@@ -63,7 +56,6 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
               </Box>
             </>
           )}  
-        </Grid>
       </Box>
     )}
   </ResponsiveContext.Consumer>
