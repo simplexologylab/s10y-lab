@@ -25,15 +25,15 @@ const NavButton = ({link, text}) => (
 export default ({title, text, image, textSize, flip, dark, buttonText, buttonLink}) => (
   <ResponsiveContext.Consumer>
     { size => (
-      <Box background={dark && "dark-1"} pad={{"vertical": "medium"}}>
+      <Box bacbkground={dark && "dark-1"} pad={{"vertical": "medium"}}>
       {/* <Box>
         <Heading>{title}</Heading>
         <Paragraph>{text}</Paragraph>
         <Button label={buttonText} onClick={() => navigate(buttonLink)} />
       </Box> */}
           {flip ? (
-            <Box direction="row">
-              <Box justify="center">
+            <Box direction={size === 'small' ? "column" : "row"}>
+              <Box justify="center" flex>
                 {(size === 'small') ? <Img fluid={image} /> : <RoundedImageLeft fluid={image} /> }
               </Box>
               <Box align="center" justify="center" pad={size}>
@@ -44,17 +44,17 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
               </Box>
             </Box>
             ) : (
-            <>
+            <Box direction={size === 'small' ? "column" : "row"}>
               <Box align="center" justify="center" pad={size}>
                 {title && <Heading>{title}</Heading>}
                 {size}
                 <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
                 {buttonText && <NavButton text={buttonText} link={buttonLink} />}
               </Box>
-              <Box justify="center">
+              <Box justify="center" flex>
                 {(size === 'small') ? <Img fluid={image} /> : <RoundedImageRight fluid={image} /> }
               </Box>
-            </>
+            </Box>
           )}  
       </Box>
     )}
