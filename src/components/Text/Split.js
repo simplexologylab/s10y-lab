@@ -40,6 +40,7 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
               </Box>
               <Box align="center" justify="center" pad={size}>
                 {title && <Heading>{title}</Heading>}
+                {size}
                 <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
                 {buttonText && <NavButton text={buttonText} link={buttonLink} />}
               </Box>
@@ -48,6 +49,7 @@ export default ({title, text, image, textSize, flip, dark, buttonText, buttonLin
             <>
               <Box align="center" justify="center" pad={size}>
                 {title && <Heading>{title}</Heading>}
+                {size}
                 <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
                 {buttonText && <NavButton text={buttonText} link={buttonLink} />}
               </Box>
