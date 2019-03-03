@@ -38,7 +38,7 @@ class Home extends React.Component {
           <Stack anchor='center'>
             <HeroImage fluid={data.hero.childImageSharp.fluid} />
             <HeroBox animation="zoomOut" align="center" width="90vw">
-              <HeroText level="1" size="large" margin="small">Make it simple.</HeroText>
+              <HeroText level="1" size="large" margin="small">MAKE IT SIMPLE.</HeroText>
               <HeroText level="2" textAlign="center" size="small" margin="small">Learn something new with us in the Simplexology Lab</HeroText>
             </HeroBox>
           </Stack>

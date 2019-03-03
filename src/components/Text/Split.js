@@ -25,7 +25,7 @@ const NavButton = ({link, text}) => (
 export default ({title, text, image, textSize, flip, dark, buttonText, buttonLink}) => (
   <ResponsiveContext.Consumer>
     { size => (
-      <Box bacbkground={dark && "dark-1"} pad={{"vertical": "medium"}}>
+      <Box background={dark && "dark-1"} pad={{"vertical": "medium"}}>
         {flip ? (
           <Box direction={size === 'small' ? "column" : "row"}>
             <Box justify="center" flex>

@@ -8,6 +8,7 @@ import {Grommet, Grid, Box, Heading, Paragraph, Button, ResponsiveContext, Accor
 import { LinkPrevious } from 'grommet-icons';
 
 import Sitemap from '../components/Sitemap';
+import Purchase from '../components/Purchase';
 
 const ButtonBox = styled(Box)`
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
@@ -60,7 +61,7 @@ class GroupPostsTemplate extends React.Component {
         const siteTitle = this.props.data.site.siteMetadata.title;
 
         return (
-            <Grommet>
+            <Grommet full>
               <Box>
                 <Box direction="row" margin="xsmall">
                   <Button plain label="back" icon={<LinkPrevious />} onClick={() => navigate('/projects')} />
@@ -77,6 +78,8 @@ class GroupPostsTemplate extends React.Component {
                         columns={(size !== "small") ? { count: 2, size: "auto" } : "auto"}
                       >
                         <Box pad="small">
+                          <Heading margin={{"vertical": "none", "horizontal": "small"}}>{pageInfo.frontmatter.title}</Heading>
+                          <Purchase product={this.props.data.allFile} />
                           <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
                         </Box>
                         <Box pad="medium">
@@ -106,9 +109,6 @@ class GroupPostsTemplate extends React.Component {
                         </Box>
                       </Grid>
                     </Box>
-                    
-                    
-                  
                   )}
                 </ResponsiveContext.Consumer>
                 <Sitemap />
@@ -125,6 +125,24 @@ query PostsBySlug($slug: String!) {
       siteMetadata {
         title
         author
+      }
+    }
+    allFile(
+      filter:{
+        relativePath: {regex: $slug}
+        extension: {eq: "json"}
+      }
+    ){
+      totalCount
+      edges {
+        node {
+          childJson {
+            product
+            generalLink
+            amazonShortLink
+            amazonFullLink
+          }
+        }
       }
     }
     allMdx(
@@ -160,6 +178,7 @@ query PostsBySlug($slug: String!) {
       frontmatter {
         title
         description
+        purchase
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
@@ -172,6 +191,6 @@ query PostsBySlug($slug: String!) {
       code {
         body
       }
-  }
+    }
   }
 `

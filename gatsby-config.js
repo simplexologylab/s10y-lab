@@ -25,6 +25,12 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Json`, // a fixed string
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/projects`,

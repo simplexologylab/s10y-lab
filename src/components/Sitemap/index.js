@@ -16,6 +16,7 @@ const ButtonLink = styled(Button)`
 `; 
 
 export default () => (
+  <Box>
   <ResponsiveContext.Consumer>
     { size => (
       <Box 
@@ -45,4 +46,5 @@ export default () => (
       </Box>
     )}
   </ResponsiveContext.Consumer>
+  </Box>
 )
