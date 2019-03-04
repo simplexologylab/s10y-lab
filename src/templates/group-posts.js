@@ -78,34 +78,33 @@ class GroupPostsTemplate extends React.Component {
                         columns={(size !== "small") ? { count: 2, size: "auto" } : "auto"}
                       >
                         <Box pad="small">
-                          <Heading margin={{"vertical": "none", "horizontal": "small"}}>{pageInfo.frontmatter.title}</Heading>
-                          <Purchase product={this.props.data.allFile} />
                           <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
                         </Box>
                         <Box pad="medium">
                           <Img fluid={pageInfo.frontmatter.image.childImageSharp.fluid} />
-                            {subPages.map(page => {
-                              if(page.node.frontmatter.image) {
-                                return (
-                                  <PostCard
-                                    key={page.id}
-                                    title={page.node.frontmatter.title}
-                                    description={page.node.frontmatter.description}
-                                    image={page.node.frontmatter.image.childImageSharp.fluid}
-                                    slug={page.node.fields.slug}
-                                  />
-                                )
-                              }
+                          <Purchase items={this.props.data.allFile} />
+                          {subPages.map(page => {
+                            if(page.node.frontmatter.image) {
                               return (
-                                <PostCard 
+                                <PostCard
                                   key={page.id}
                                   title={page.node.frontmatter.title}
                                   description={page.node.frontmatter.description}
+                                  image={page.node.frontmatter.image.childImageSharp.fluid}
                                   slug={page.node.fields.slug}
                                 />
                               )
-                            })
                             }
+                            return (
+                              <PostCard 
+                                key={page.id}
+                                title={page.node.frontmatter.title}
+                                description={page.node.frontmatter.description}
+                                slug={page.node.fields.slug}
+                              />
+                            )
+                          })
+                          }
                         </Box>
                       </Grid>
                     </Box>
@@ -138,9 +137,11 @@ query PostsBySlug($slug: String!) {
         node {
           childJson {
             product
+            details
             generalLink
             amazonShortLink
             amazonFullLink
+            amazonImage
           }
         }
       }
