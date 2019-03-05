@@ -13,19 +13,11 @@ const Item = ({data}) => (
             <Box flex="grow" pad={{"vertical": "small"}} border={{ side: "bottom"}}>
                 <Heading alignSelf="center" margin="none" level={3}>{data.product}</Heading>                
                 <Box direction="row" justify="center" align="center" pad="small">
-                    <Box elevation="large" width="30vw">
-                    { data.amazonImage ? <Image fit="contain" src={data.amazonImage} margin="none" /> : <DocumentImage /> }
-                        {/* <a 
-                            target="_blank"  
-                            href="https://www.amazon.com/gp/product/B06XQWQ7C3/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B06XQWQ7C3&linkCode=as2&tag=simplexologyl-20&linkId=9bb8e63f8696c1a642900f4de4d6a58e"
-                        >
-                            <img 
-                                border="0" 
-                                src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=B06XQWQ7C3&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL160_&tag=simplexologyl-20"
-                            />
-                        </a>
-                        <img src="//ir-na.amazon-adsystem.com/e/ir?t=simplexologyl-20&l=am2&o=1&a=B06XQWQ7C3" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> */}
-                    </Box>
+                    { data.amazonImage &&
+                        <Box elevation="large">
+                            <Image fit="contain" src={data.amazonImage} margin="none" />
+                        </Box> 
+                    }
                     <Box gap="small" justify="center" pad="small">
                         <Button color="accent-3" icon={<Compliance />} label="Our Review, make link" />
                         <Box direction="row" gap="small" align="center" justify="center">
