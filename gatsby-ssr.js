@@ -1,0 +1,1 @@
+export { wrapRootElement } from './src/api/wrap-root-element';
