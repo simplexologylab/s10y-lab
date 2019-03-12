@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^0.16.8",
     "@mdx-js/tag": "^0.16.8",
+    "apollo-client": "^2.5.1",
     "aws-appsync": "^1.7.1",
     "aws-appsync-react": "^1.2.7",
     "gatsby": "^2.0.115",
