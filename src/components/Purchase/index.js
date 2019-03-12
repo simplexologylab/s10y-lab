@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Box, Layer, Heading, Button, Image, ResponsiveContext } from 'grommet';
-import { Close, Amazon, Shop, Search, Compliance, DocumentImage } from 'grommet-icons';
+import { Close, Amazon, Shop, Search, Compliance } from 'grommet-icons';
 import styled from 'styled-components';
 
 const ButtonLink = styled(Button)`

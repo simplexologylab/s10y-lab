@@ -1,6 +1,6 @@
 import React from 'react'
-import { navigate, Link } from 'gatsby';
-import { Box, ResponsiveContext, Button, Heading, Text } from 'grommet';
+import { navigate } from 'gatsby';
+import { Box, ResponsiveContext, Button } from 'grommet';
 import { Twitter, Mail } from 'grommet-icons';
 import styled from 'styled-components';
 

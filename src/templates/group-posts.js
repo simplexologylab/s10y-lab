@@ -1,10 +1,10 @@
 import React from "react";
-import { graphql, navigate, Link } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import Img from 'gatsby-image';
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import styled from 'styled-components';
 
-import {Grommet, Grid, Box, Heading, Paragraph, Button, ResponsiveContext, Accordion, AccordionPanel} from 'grommet';
+import {Grommet, Grid, Box, Heading, Button, ResponsiveContext } from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 
 import Sitemap from '../components/Sitemap';
