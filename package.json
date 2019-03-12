@@ -11,7 +11,7 @@
     "@mdx-js/mdx": "^0.16.8",
     "@mdx-js/tag": "^0.16.8",
     "aws-appsync": "^1.7.1",
-    "aws-appsync-react": "^1.2.6",
+    "aws-appsync-react": "^1.2.7",
     "gatsby": "^2.0.115",
     "gatsby-image": "^2.0.29",
     "gatsby-mdx": "^0.3.5",
