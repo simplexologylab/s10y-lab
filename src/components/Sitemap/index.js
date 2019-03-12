@@ -1,11 +1,12 @@
 import React from 'react'
 import { navigate, Link } from 'gatsby';
-import { Box, ResponsiveContext, Button } from 'grommet';
+import { Box, ResponsiveContext, Button, Heading, Text } from 'grommet';
 import { Twitter, Mail } from 'grommet-icons';
 import styled from 'styled-components';
 
 import SitemapButton from './SitemapButton';
 import SitemapName from './SitemapName';
+import EmailSubscribe from '../../components/Email'
 
 const PrivacyLink = styled(Button)`
   font-size: 10px;
@@ -30,6 +31,9 @@ export default () => (
           <SitemapButton label='Projects' navTo="/projects" />
           <SitemapButton label='About' navTo="/about" />
           <SitemapButton label='Contact' navTo="/contact" />
+        </Box>
+        <Box justify="center">
+          <EmailSubscribe />
         </Box>
         <Box align="center" pad="xsmall">
           <Box direction='row' align="center" justify="center">
