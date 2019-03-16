@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/post.js`);
-  const groupPosts = path.resolve(`./src/templates/group-posts.js`);
+  const groupPosts = path.resolve(`./src/templates/post-stack.js`);
   return graphql(
     `
       {
