@@ -34,7 +34,6 @@
     "gatsby-transformer-json": "^2.1.8",
     "gatsby-transformer-remark": "^2.2.4",
     "gatsby-transformer-sharp": "^2.1.13",
-    "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
     "grommet": "^2.4.0",
     "isomorphic-fetch": "^2.2.1",
