@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
 import { Grommet, Anchor, Layer, Box, Button, Text, Heading, ResponsiveContext} from 'grommet';
-import { Close, Menu, CaretNext, EmptyCircle } from 'grommet-icons';
+import { Menu, CaretNext, EmptyCircle } from 'grommet-icons';
 import styled from 'styled-components';
 
 const FixedButton = styled(Button)`
