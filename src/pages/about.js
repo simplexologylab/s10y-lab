@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 import config from "../../static/site-config";
 import Menu from "../components/Menu";
-import Typer from '../components/typer';
+// import Typer from '../components/typer';
 import Sitemap from "../components/Sitemap";
 import Split from "../components/Text/Split";
 import ScrollMeter from "../components/ScrollMeter";
@@ -53,10 +53,10 @@ class AboutPage extends Component {
           </Box>
           <Img fluid={data.thought.childImageSharp.fluid} />
           <Box background="dark-1" pad="medium" margin="large" elevation="medium" round>
-            <TypeHeading level="2" size="xlarge">
+            {/* <TypeHeading level="2" size="xlarge">
               {" > "}
               <Typer rotate={['hello, world']} />
-            </TypeHeading>
+            </TypeHeading> */}
             <Paragraph size="large" alignSelf="center">
               We all remember the moment in the time that 
               inspired us to pursue a hobby, passion, and/or career.

@@ -128,7 +128,7 @@
 //     }
 //     allFile(
 //       filter:{
-//         relativePath: {regex: $slug}
+//         relativegat: {regex: $slug}
 //         extension: {eq: "json"}
 //       }
 //     ){
