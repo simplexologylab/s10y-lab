@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
-import { Grommet, Anchor, Layer, Box, Button, Text, Heading, ResponsiveContext} from 'grommet';
-import { Menu, CaretNext, EmptyCircle } from 'grommet-icons';
+import { Grommet, Anchor, Layer, Box, Grid, Button, Text, Heading, ResponsiveContext} from 'grommet';
+import { Menu, LinkPrevious, EmptyCircle } from 'grommet-icons';
 import styled from 'styled-components';
 
 const FixedButton = styled(Button)`
   position: fixed;
-  top: 5vh;
-  left: 10px;
+  bottom: 5vh;
+  left: 20px;
   z-index: 100;
 `;
 
@@ -18,6 +18,14 @@ const AnchorBox = ({text}) => (
     {text}
   </Box>
 )
+
+const SiteHeading = styled(Button)`
+  font-family: 'Rajdhani';
+`;
+
+const TitleHeading = styled(Heading)`
+  font-family: 'Shadows Into Light';
+`;
 
 export default (props) => {
   const pageInfo = props.data.mdx;
@@ -31,40 +39,50 @@ export default (props) => {
       <ResponsiveContext.Consumer>
         {size => (
           <Box>
-            { menu ? (
-              <Layer full="vertical" position="left" margin="10px"
-                onClickOutside={() => setMenu(false)} onEsc={() => setMenu(false)}
-              >
-                <Box as="header" direction="row" elevation="medium" align="center" justify="center">
-                  <Heading level={3} margin="small">{pageInfo.frontmatter.title}</Heading>
-                </Box>
-                <Box width="40vw" flex overflow="auto" pad="xsmall">
-                  {subPages.map(page => (
-                    <Anchor href={`#${page.node.id}`} label={<Box background="dark-1" direction="row" pad={{ "vertical": "medium", "horizontal": "xsmall"}}><EmptyCircle /> {page.node.frontmatter.title}</Box>} />
-                  ))}
-                </Box>
-                <Box
-                  as="footer"
-                  border={{ side: "top"}}
-                  pad="small"
-                  align="center"
-                >
-                  <Button primary label="Close" onClick={() => setMenu(false)} />
-                </Box>
-              </Layer>
-            ) : (
-              <Box animation="slideRight">
-                <FixedButton icon={<Menu />} primary color="accent-4" alignSelf="center" onClick={() => setMenu(true)} />
+            <Box direction="row" pad={size}>
+              <Button basis="auto" plain label="back" icon={<LinkPrevious />} onClick={() => navigate('/projects')} />
+              <Box align="end" jusify="end" margin="xsmall" fill>
+                <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
+                <TitleHeading level='1' size="small" margin="small">{pageInfo.frontmatter.title}</TitleHeading>                  
               </Box>
-            )}
-            <Box width="50vw" alignSelf="center" animation="fadeIn">
-              <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
-              {subPages.map(page => (
-                <Box id={page.node.id}>
-                  <MDXRenderer>{page.node.code.body}</MDXRenderer>
-                </Box>
-              ))}
             </Box>
+            <Box>
+              <Box pad={size} alignSelf="center" animation="fadeIn">
+                <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
+                {subPages.map(page => (
+                  <Box id={page.node.id}>
+                    <MDXRenderer>{page.node.code.body}</MDXRenderer>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+            { menu ? (
+                  <Layer full="vertical" position="left" margin="10px"
+                    onClickOutside={() => setMenu(false)} onEsc={() => setMenu(false)}
+                  >
+                    <Box as="header" direction="row" elevation="medium" align="center" justify="center">
+                      <Heading level={3} margin="small">{pageInfo.frontmatter.title}</Heading>
+                    </Box>
+                    <Box flex overflow="auto" pad="xsmall">
+                      {subPages.map(page => (
+                        <Anchor href={`#${page.node.id}`} label={<Box direction="row" gap="medium" pad={{ "vertical": "medium", "horizontal": "xsmall"}}>
+                        <EmptyCircle />{page.node.frontmatter.title}</Box>} />
+                      ))}
+                    </Box>
+                    <Box
+                      as="footer"
+                      border={{ side: "top"}}
+                      pad="small"
+                      align="center"
+                    >
+                      <FixedButton primary label="Close" onClick={() => setMenu(false)} />
+                    </Box>
+                  </Layer>
+                ) : (
+                  <Box animation="fadeIn" alignSelf="center">
+                    <FixedButton icon={<Menu style={{ verticalAlign: "bottom" }} />} primary color="accent-4" justify="stretch" onClick={() => setMenu(true)} />
+                  </Box>
+                )}
           </Box>
         )}
       </ResponsiveContext.Consumer>
