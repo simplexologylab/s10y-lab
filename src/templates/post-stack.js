@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
-import { Grommet, Anchor, Layer, Box, Grid, Button, Text, Heading, ResponsiveContext } from 'grommet';
+import { Grommet, Anchor, Layer, Box, Button, Heading, ResponsiveContext } from 'grommet';
 import { Menu, LinkPrevious, EmptyCircle } from 'grommet-icons';
 import styled from 'styled-components';
 
@@ -12,8 +12,6 @@ const FixedButton = styled(Button)`
   left: 20px;
   z-index: 100;
 `;
-
-const AnchorBox = ({ text }) => <Box background="dark-1">{text}</Box>;
 
 const SiteHeading = styled(Button)`
   font-family: 'Rajdhani';
