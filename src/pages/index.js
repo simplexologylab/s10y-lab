@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from 'gatsby-image';
 import { Grommet, Stack, Box, Heading } from 'grommet';
 import styled from 'styled-components';
@@ -8,6 +8,11 @@ import SEO from "../components/seo"
 import TextSplit from "../components/Text/Split";
 import Sitemap from "../components/Sitemap";
 // import { rhythm } from "../utils/typography"
+
+// 3dmaav17jtf6mmrm3e3nefngq3 App Client ID
+// https://github.com/dabit3/gatsby-auth-starter-aws-amplify/tree/master/amplify
+// https://hackernoon.com/building-jamstack-applications-with-gatsby-and-aws-amplify-framework-d7e2b9e7117e
+
 
 const HeroImage = styled(Img)`
   height: 95vh;
@@ -67,6 +72,7 @@ class Home extends React.Component {
             buttonLink="/contact"
             dark
           />
+          <Link to="/add-auth/">Sign Up</Link>
         </Box>
         <Sitemap />
       </Grommet>

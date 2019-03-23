@@ -72,3 +72,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  if (page.path.match(/^\/add-aws/)) {
+      page.matchPath = "/add-aws/*"
+      createPage(page)
+  }
+}
