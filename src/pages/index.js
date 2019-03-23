@@ -1,18 +1,19 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { Grommet, Stack, Box, Heading } from 'grommet';
 import styled from 'styled-components';
 
-import SEO from "../components/seo"
-import TextSplit from "../components/Text/Split";
-import Sitemap from "../components/Sitemap";
+import SEO from '../components/seo';
+import TextSplit from '../components/Text/Split';
+import Sitemap from '../components/Sitemap';
+import Authed from '../components/Authenticated';
+
 // import { rhythm } from "../utils/typography"
 
 // 3dmaav17jtf6mmrm3e3nefngq3 App Client ID
 // https://github.com/dabit3/gatsby-auth-starter-aws-amplify/tree/master/amplify
 // https://hackernoon.com/building-jamstack-applications-with-gatsby-and-aws-amplify-framework-d7e2b9e7117e
-
 
 const HeroImage = styled(Img)`
   height: 95vh;
@@ -28,23 +29,25 @@ const HeroText = styled(Heading)`
 
 class Home extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+    const { data } = this.props;
+    const siteTitle = data.site.siteMetadata.title;
     // const posts = data.allMarkdownRemark.edges
     // const groups = posts.filter(post => post.node.fields.slug.split("/").length === 3);
 
     return (
       <Grommet>
-        <SEO
-          title={siteTitle}
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
+        <SEO title={siteTitle} keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
         <Box elevation="medium">
-          <Stack anchor='center'>
+          <Stack anchor="center">
             <HeroImage fluid={data.hero.childImageSharp.fluid} />
             <HeroBox animation="zoomOut" align="center" width="90vw">
-              <HeroText level="1" size="large" margin="small">MAKE IT SIMPLE.</HeroText>
-              <HeroText level="2" textAlign="center" size="small" margin="small">Learn something new with us in the Simplexology Lab</HeroText>
+              <HeroText level="1" size="large" margin="small">
+                MAKE IT SIMPLE.
+              </HeroText>
+              <Authed />
+              <HeroText level="2" textAlign="center" size="small" margin="small">
+                Learn something new with us in the Simplexology Lab
+              </HeroText>
             </HeroBox>
           </Stack>
         </Box>
@@ -56,7 +59,7 @@ class Home extends React.Component {
             buttonText="Go To Projects"
             buttonLink="/projects"
           />
-          <TextSplit 
+          <TextSplit
             title="Who we are"
             text="Just people who love seeing Science, Math, and Technology used in the real world and helping others realize it's not that complicated."
             image={data.geometry.childImageSharp.fluid}
@@ -64,7 +67,7 @@ class Home extends React.Component {
             buttonLink="/about"
             flip
           />
-          <TextSplit 
+          <TextSplit
             title="How can we help you?"
             text="Check out our professional services or reach out directly to see how we can help you make something simple."
             image={data.handshake.childImageSharp.fluid}
@@ -76,11 +79,11 @@ class Home extends React.Component {
         </Box>
         <Sitemap />
       </Grommet>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;
 
 export const imageQuery = graphql`
   query {
@@ -89,7 +92,7 @@ export const imageQuery = graphql`
         title
       }
     }
-    hero: file(relativePath: { eq: "lab-table.jpg"}) {
+    hero: file(relativePath: { eq: "lab-table.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           base64
@@ -104,8 +107,8 @@ export const imageQuery = graphql`
           originalName
         }
       }
-    },
-    geometry: file(relativePath: { eq: "geometry.jpg"}) {
+    }
+    geometry: file(relativePath: { eq: "geometry.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 600) {
           base64
@@ -120,8 +123,8 @@ export const imageQuery = graphql`
           originalName
         }
       }
-    },
-    rocks: file(relativePath: { eq: "rocks.jpg"}) {
+    }
+    rocks: file(relativePath: { eq: "rocks.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 600) {
           base64
@@ -136,8 +139,8 @@ export const imageQuery = graphql`
           originalName
         }
       }
-    },
-    handshake: file(relativePath: { eq: "handshake.jpg"}) {
+    }
+    handshake: file(relativePath: { eq: "handshake.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 600) {
           base64
