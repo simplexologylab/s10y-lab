@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "s10y-lab-20190322215329-authRole",
+            "UnauthRoleArn": "arn:aws:iam::036010841399:role/s10y-lab-20190322215329-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::036010841399:role/s10y-lab-20190322215329-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "s10y-lab-20190322215329-deployment",
+            "UnauthRoleName": "s10y-lab-20190322215329-unauthRole",
+            "StackName": "s10y-lab-20190322215329",
+            "StackId": "arn:aws:cloudformation:us-east-2:036010841399:stack/s10y-lab-20190322215329/7679de90-4d0e-11e9-b16b-0a768148c3d2"
+        },
+        "categories": {
+            "auth": {
+                "cognito9f693319": {}
+            }
+        }
+    }
+}
