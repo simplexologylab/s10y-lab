@@ -83,9 +83,6 @@ class Home extends React.Component {
             <Button label="Learn More About Us" onClick={()=>navigate('/about')} />
           </Box>
         </Box>
-        <Box height="xsmall" justify="center" align="center">
-          <Social text="find us here | " />
-        </Box>
         {/* <Box gap="small">
           <TextSplit
             title="Get started"
