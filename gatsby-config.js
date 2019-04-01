@@ -56,7 +56,6 @@ module.exports = {
       options: {
         google: {
           families: [
-            'ZCOOL KuaiLe', 
             'Libre Barcode 128 Text', 
             'Shadows Into Light', 
             'VT323', 
