@@ -4,47 +4,45 @@ import Img from 'gatsby-image';
 
 import { Box, Heading, ResponsiveContext, Button, Paragraph, Text } from 'grommet';
 import { Next } from 'grommet-icons';
+import styled from 'styled-components';
+
+const RotateHeading = styled(Text)`
+  font-family: 'Shadows Into Light';
+  font-size: 2rem;
+`;
+
+const RotateText = styled(Text)`
+  font-family: 'Fira Sans';
+`;
 
 export default ({ heading, text, image, slug }) => {
-  const [hover, setHover] = useState(false);
 
   return (
     <ResponsiveContext.Consumer>
-      {size => (
-        <Box
-          direction={size === 'small' ? "column" : "row"}
-          height="medium"
-          width="80vw"
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          elevation="xlarge"
-        >
-          <Box
-            background="dark-1"
-            basis="1/2"
+        {size => (
+          <Button
+            onClick={()=>navigate(slug)}
+            margin="small"
           >
-            <Img fluid={image} style={{ height: '100%'}} />
-          </Box>
-          <Box basis="1/2" background="light-1">
-            <Box pad="medium" flex>
-              <Heading margin="none" level={4}>{heading}</Heading>
-              <Paragraph>{text}</Paragraph>
-            </Box>
-            {(size === 'small' || hover) && (
-              <Box animation="fadeIn" margin="medium" justify="end">
-                <Button 
-                  label="see this thing" 
-                  alignSelf="end" 
-                  icon={<Next />}
-                  onClick={()=>navigate(slug)}
-                  reverse 
-                  primary 
-                />
+            <Box
+              direction={size === 'small' ? "column" : "row"}
+              height="medium"
+              width="80vw"
+              elevation="xlarge"
+            >
+              <Box
+                background="dark-1"
+                basis="1/2"
+              >
+                <Img fluid={image} style={{ height: '100%'}} />
               </Box>
-            )}
-          </Box>
-        </Box>
-      )}
+                <Box pad="medium" gap="medium" background="light-1" flex justify="center">
+                  <RotateHeading margin="none" level={2} size="xlarge">{heading}</RotateHeading>
+                  <RotateText>{text}</RotateText>
+                </Box>
+            </Box>
+          </Button>
+        )}  
     </ResponsiveContext.Consumer>
   )
 }

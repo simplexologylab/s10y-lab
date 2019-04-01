@@ -1,7 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { navigate } from 'gatsby';
 
 import { Box, Heading, Button } from 'grommet';
-import { Twitter, Pinterest, Slack, Mail } from 'grommet-icons';
+import { Twitter, Pinterest, Slack, Youtube, Mail } from 'grommet-icons';
+import styled from 'styled-components';
+
+const ButtonLink = styled(Button)`
+  box-shadow: none;
+`;
 
 export default ({text}) => {
   return (
@@ -13,10 +19,11 @@ export default ({text}) => {
       elevation="medium"
     >
       { text && <Heading level={3} margin="none">{text}</Heading> }
-      <Button icon={<Twitter />} href="https://www.twitter.com" target="_blank" />
-      <Button icon={<Pinterest />} />
-      <Button icon={<Slack />} />
-      <Button icon={<Mail />} />
+      <ButtonLink icon={<Twitter />} href="https://www.twitter.com" target="_blank" />
+      <ButtonLink icon={<Pinterest />} />
+      <ButtonLink icon={<Youtube />} />
+      <ButtonLink icon={<Slack />} />
+      <ButtonLink icon={<Mail />} onClick={()=>navigate('/contact')} />
     </Box>
   )
 }

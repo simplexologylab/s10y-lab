@@ -7,14 +7,14 @@ export default ({ children, duration }) => {
 
   useEffect(() => {
     if (show < children.length) {
-      setTimeout(() => setShow(show + 1), duration);
+      // setTimeout(() => setShow(show + 1), duration);
     } else {
       setShow(0)
     }
   })
 
   return (
-    <Box>
+    <Box margin="medium">
       {children[show]}
       <Box>
         <Box direction="row" gap="medium" justify="center" pad="xsmall">

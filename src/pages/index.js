@@ -24,10 +24,6 @@ const HeroImage = styled(Img)`
   height: 60vh;
 `;
 
-const HeroBox = styled(Box)`
-  background-color: hsla(0, 5%, 62%, 0.46);
-`;
-
 const MainHeading = styled(Heading)`
   font-family: 'Rajdhani';
   font-size: 10vh;
@@ -39,9 +35,7 @@ class Home extends React.Component {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
     let projects = data.allMdx.edges.filter(project => project.node.fields.slug.split('/').length === 3);
- 
-    // const posts = data.allMarkdownRemark.edges
-    // const groups = posts.filter(post => post.node.fields.slug.split("/").length === 3);
+
     return (
       <Grommet>
         <SEO title={siteTitle} keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
@@ -50,7 +44,7 @@ class Home extends React.Component {
           <Box>
             <Stack anchor="bottom">
               <HeroImage fluid={data.hero.childImageSharp.fluid} />
-              <Box width="80vw" gap="large" pad="small">
+              <Box width="80vw" gap="large" margin="large">
                 <MainHeading margin="small">we</MainHeading>
                 <MainHeading margin="small">make it</MainHeading>
                 <MainHeading margin="small">simple</MainHeading>
@@ -74,13 +68,13 @@ class Home extends React.Component {
             )}
           </Rotator>
           <Box width="50vw" alignSelf="center" margin="small" >
-            <Button label="See All Projects" primary onClick={()=>navigate('/projects')} />
+            <Button label="See All Projects" color="accent-1" onClick={()=>navigate('/projects')} />
           </Box>
         </Box>
         <Box pad={{"vertical": "xlarge"}} background="dark-1" justify="center" align="center">
           <Box gap="large">
             <IconText icon={<InProgress size="2rem" />} text="You're time is valuable" /> 
-            <IconText icon={<DocumentTest size="2rem" />} text="We'll formulate the projects" />
+            <IconText icon={<DocumentTest size="2rem" />} text="We formulate the projects" />
             <IconText icon={<Bug size="2rem" />} text="Then work out the bugs" />
             <IconText icon={<Workshop size="2rem" />} text="Next we'll show you what we did" />
             <IconText icon={<Deploy size="2rem" />} text="Allowing you to do it blazing fast" />
@@ -92,7 +86,7 @@ class Home extends React.Component {
         <Box height="xsmall" justify="center" align="center">
           <Social text="find us here | " />
         </Box>
-        <Box gap="small">
+        {/* <Box gap="small">
           <TextSplit
             title="Get started"
             text="Explore and get inspired to learn something new, we'll make it as simple as possilbe."
@@ -116,7 +110,7 @@ class Home extends React.Component {
             buttonLink="/contact"
             dark
           />
-        </Box>
+        </Box> */}
         <Sitemap />
       </Grommet>
     );
