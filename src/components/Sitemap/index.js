@@ -1,11 +1,11 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 import { Box, ResponsiveContext, Button } from 'grommet';
-import { Twitter, Mail } from 'grommet-icons';
 import styled from 'styled-components';
 
 import SitemapButton from './SitemapButton';
 import SitemapName from './SitemapName';
+import Social from '../../components/Social';
 
 const PrivacyLink = styled(Button)`
   font-size: 10px;
@@ -17,6 +17,7 @@ const ButtonLink = styled(Button)`
 
 export default () => (
   <Box>
+    <Social text="follow us" />
     <ResponsiveContext.Consumer>
       {size => (
         <Box fill gap={size} justify="center" direction={size === 'small' ? 'column' : 'row'}>
@@ -27,10 +28,6 @@ export default () => (
             <SitemapButton label="Contact" navTo="/contact" />
           </Box>
           <Box align="center" pad="xsmall">
-            <Box direction="row" align="center" justify="center">
-              <ButtonLink icon={<Twitter size="small" />} href="https://twitter.com/simplexology" target="_blank" />
-              <Button icon={<Mail size="small" />} onClick={() => navigate('/contact')} />
-            </Box>
             <SitemapName />
             <PrivacyLink label="Privacy Policy" plain onClick={() => navigate('/privacy')} />
           </Box>

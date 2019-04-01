@@ -17,6 +17,7 @@ export default ({text}) => {
       direction="row" 
       align="center"
       elevation="medium"
+      justify="center"
     >
       { text && <Heading level={3} margin="none">{text}</Heading> }
       <ButtonLink icon={<Twitter />} href="https://www.twitter.com" target="_blank" />
