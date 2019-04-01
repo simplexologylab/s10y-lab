@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { withAuthenticator } from 'aws-amplify-react';
+import Authed from '../components/Authed';
 
-const Auth = props => (
-  <div>
-    <h1>Should only see this when logged in</h1>
-    <Link to="/">Home</Link>
-    <pre>{JSON.stringify(props, 0, 2)}</pre>
-  </div>
-);
+class AddAuth extends React.Component {
 
-export default withAuthenticator(Auth, true);
+  render() {
+    return (
+      <div>
+        <h1>Should Always See This</h1>
+        <Link to="/">Home</Link>
+        <Authed>
+          <p>Protected Data</p>
+        </Authed>
+      </div>
+    )
+  }
+}
+
+// export default withAuthenticator(Auth, true);
+export default AddAuth

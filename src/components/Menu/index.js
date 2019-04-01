@@ -5,6 +5,8 @@ import { Box, DropButton } from 'grommet';
 import MenuButton from './MenuButton'
 import ResponsiveMenu from './ResponsiveMenu';
 import Logo from './Logo';
+import Authed from '../Authed';
+import { Run } from 'grommet-icons';
 
 class Menu extends Component {
   state = {
@@ -17,7 +19,7 @@ class Menu extends Component {
 
   render() {
     return (
-      <Box direction="row">
+      <Box direction="row" align='center'>
         <Box>
           <DropButton 
             label={<MenuButton />}
@@ -29,8 +31,11 @@ class Menu extends Component {
             dropContent={(<ResponsiveMenu />)}
           />
         </Box>
-        <Box flex align="end" justify="center" pad="medium">
+        <Box flex align="center" justify="center" pad="medium">
           <Logo />
+        </Box>
+        <Box justify="center">
+          <Authed showIcon={<Run size="36px" />} />
         </Box>
       </Box>
     )

@@ -1,13 +1,18 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import Img from 'gatsby-image';
-import { Grommet, Stack, Box, Heading } from 'grommet';
+import { Grommet, Stack, Box, Heading, Button } from 'grommet';
+import { InProgress, DocumentTest, Bug, Workshop, Deploy, ChatOption, Trophy } from 'grommet-icons';
 import styled from 'styled-components';
 
 import SEO from '../components/seo';
 import TextSplit from '../components/Text/Split';
 import Sitemap from '../components/Sitemap';
-import Authed from '../components/Authenticated';
+import Menu from '../components/Menu';
+import IconText from '../components/IconText';
+import Social from '../components/Social';
+import RotatorCard from '../components/Rotator/RotatorCard';
+import Rotator from '../components/Rotator/Rotator';
 
 // import { rhythm } from "../utils/typography"
 
@@ -16,42 +21,72 @@ import Authed from '../components/Authenticated';
 // https://hackernoon.com/building-jamstack-applications-with-gatsby-and-aws-amplify-framework-d7e2b9e7117e
 
 const HeroImage = styled(Img)`
-  height: 95vh;
+  height: 60vh;
 `;
 
-const HeroBox = styled(Box)`
-  background-color: hsla(0, 5%, 62%, 0.46);
-`;
-
-const HeroText = styled(Heading)`
+const MainHeading = styled(Heading)`
   font-family: 'Rajdhani';
+  font-size: 10vh;
+  color: white;
 `;
 
 class Home extends React.Component {
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
-    // const posts = data.allMarkdownRemark.edges
-    // const groups = posts.filter(post => post.node.fields.slug.split("/").length === 3);
+    let projects = data.allMdx.edges.filter(project => project.node.fields.slug.split('/').length === 3);
 
     return (
       <Grommet>
         <SEO title={siteTitle} keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-        <Box elevation="medium">
-          <Stack anchor="center">
-            <HeroImage fluid={data.hero.childImageSharp.fluid} />
-            <HeroBox animation="zoomOut" align="center" width="90vw">
-              <HeroText level="1" size="large" margin="small">
-                MAKE IT SIMPLE.
-              </HeroText>
-              <Authed />
-              <HeroText level="2" textAlign="center" size="small" margin="small">
-                Learn something new with us in the Simplexology Lab
-              </HeroText>
-            </HeroBox>
-          </Stack>
+
+        <Stack>
+          <Box>
+            <Stack anchor="bottom">
+              <HeroImage fluid={data.hero.childImageSharp.fluid} />
+              <Box width="80vw" gap="large" margin="large">
+                <MainHeading margin="small">we</MainHeading>
+                <MainHeading margin="small">make it</MainHeading>
+                <MainHeading margin="small">simple</MainHeading>
+              </Box>
+            </Stack>
+          </Box>
+          <Box background="light-1" margin="medium" round="small" elevation="xlarge">
+            <Menu />
+          </Box>
+        </Stack>
+        <Box align="center" pad="small">
+          <Rotator duration={5000}>
+            {projects.map(({node}) => (
+                <RotatorCard 
+                  heading={node.frontmatter.title} 
+                  text={node.frontmatter.description} 
+                  image={node.frontmatter.image.childImageSharp.fluid}
+                  slug={node.fields.slug}
+                />
+              )
+            )}
+          </Rotator>
+          <Box width="50vw" alignSelf="center" margin="small" >
+            <Button label="See All Projects" color="accent-1" onClick={()=>navigate('/projects')} />
+          </Box>
         </Box>
-        <Box gap="small">
+        <Box pad={{"vertical": "xlarge"}} background="dark-1" justify="center" align="center">
+          <Box gap="large">
+            <IconText icon={<InProgress size="2rem" />} text="You're time is valuable" /> 
+            <IconText icon={<DocumentTest size="2rem" />} text="We formulate the projects" />
+            <IconText icon={<Bug size="2rem" />} text="Then work out the bugs" />
+            <IconText icon={<Workshop size="2rem" />} text="Next we'll show you what we did" />
+            <IconText icon={<Deploy size="2rem" />} text="Allowing you to do it blazing fast" />
+            <IconText icon={<ChatOption size="2rem" />} text="We'll help along the way" />
+            <IconText icon={<Trophy size="2rem" />} text="You become a super hero" />
+            <Button label="Learn More About Us" onClick={()=>navigate('/about')} />
+          </Box>
+        </Box>
+        <Box height="xsmall" justify="center" align="center">
+          <Social text="find us here | " />
+        </Box>
+        {/* <Box gap="small">
           <TextSplit
             title="Get started"
             text="Explore and get inspired to learn something new, we'll make it as simple as possilbe."
@@ -75,8 +110,7 @@ class Home extends React.Component {
             buttonLink="/contact"
             dark
           />
-          <Link to="/add-auth/">Sign Up</Link>
-        </Box>
+        </Box> */}
         <Sitemap />
       </Grommet>
     );
@@ -85,11 +119,33 @@ class Home extends React.Component {
 
 export default Home;
 
-export const imageQuery = graphql`
+export const homeQuery = graphql`
   query {
     site {
       siteMetadata {
         title
+      }
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            image {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
       }
     }
     hero: file(relativePath: { eq: "lab-table.jpg" }) {
