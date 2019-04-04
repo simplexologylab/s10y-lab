@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Auth } from 'aws-amplify';
 import { Authenticator } from 'aws-amplify-react';
 
-import { Box, Button, DropButton, Heading, Text } from 'grommet';
+import { Box, Button, DropButton } from 'grommet';
 
 import NotAuthed from './NotAuthed';
 
-export default ({children, showIcon}) => {
+export default ({ children, showIcon }) => {
   const [isAuthed, setIsAuthed] = useState(false);
   useEffect(() => {
     Auth.currentAuthenticatedUser()
@@ -18,12 +18,12 @@ export default ({children, showIcon}) => {
     return (
       <div>
         {children && children}
-        { showIcon && (
-          <DropButton 
+        {showIcon && (
+          <DropButton
             icon={showIcon}
             dropContent={
-              <Box pad={{"horizontal": "large"}}>
-                <Button 
+              <Box pad={{ horizontal: 'large' }}>
+                <Button
                   icon={showIcon}
                   label="signout"
                   plain
@@ -42,8 +42,10 @@ export default ({children, showIcon}) => {
   return (
     <NotAuthed>
       <Authenticator
-        onStateChange={(authState) => { authState === "signedIn" ? setIsAuthed(true) : setIsAuthed(false) }}
+        onStateChange={authState => {
+          authState === 'signedIn' ? setIsAuthed(true) : setIsAuthed(false);
+        }}
       />
     </NotAuthed>
-  )
+  );
 };

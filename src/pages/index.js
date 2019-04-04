@@ -2,23 +2,15 @@ import React from 'react';
 import { graphql, navigate } from 'gatsby';
 import Img from 'gatsby-image';
 import { Grommet, Stack, Box, Heading, Button } from 'grommet';
-import { InProgress, DocumentTest, Bug, Workshop, Deploy, ChatOption, Trophy } from 'grommet-icons';
+import { DocumentTest, Bug, Workshop, Deploy, Connect } from 'grommet-icons';
 import styled from 'styled-components';
 
 import SEO from '../components/seo';
-import TextSplit from '../components/Text/Split';
 import Sitemap from '../components/Sitemap';
 import Menu from '../components/Menu';
 import IconText from '../components/IconText';
-import Social from '../components/Social';
 import RotatorCard from '../components/Rotator/RotatorCard';
 import Rotator from '../components/Rotator/Rotator';
-
-// import { rhythm } from "../utils/typography"
-
-// 3dmaav17jtf6mmrm3e3nefngq3 App Client ID
-// https://github.com/dabit3/gatsby-auth-starter-aws-amplify/tree/master/amplify
-// https://hackernoon.com/building-jamstack-applications-with-gatsby-and-aws-amplify-framework-d7e2b9e7117e
 
 const HeroImage = styled(Img)`
   height: 60vh;
@@ -57,57 +49,30 @@ class Home extends React.Component {
         </Stack>
         <Box align="center" pad="small">
           <Rotator duration={5000}>
-            {projects.map(({node}) => (
-                <RotatorCard 
-                  heading={node.frontmatter.title} 
-                  text={node.frontmatter.description} 
-                  image={node.frontmatter.image.childImageSharp.fluid}
-                  slug={node.fields.slug}
-                />
-              )
-            )}
+            {projects.map(({ node }) => (
+              <RotatorCard
+                key={node.frontmatter.title}
+                heading={node.frontmatter.title}
+                text={node.frontmatter.description}
+                image={node.frontmatter.image.childImageSharp.fluid}
+                slug={node.fields.slug}
+              />
+            ))}
           </Rotator>
-          <Box width="50vw" alignSelf="center" margin="small" >
-            <Button label="See All Projects" color="accent-1" onClick={()=>navigate('/projects')} />
+          <Box width="50vw" alignSelf="center" margin="small">
+            <Button label="See All Projects" color="accent-1" onClick={() => navigate('/projects')} />
           </Box>
         </Box>
-        <Box pad={{"vertical": "xlarge"}} background="dark-1" justify="center" align="center">
+        <Box pad={{ vertical: 'xlarge' }} background="dark-1" justify="center" align="center">
           <Box gap="large">
-            <IconText icon={<InProgress size="2rem" />} text="You're time is valuable" /> 
-            <IconText icon={<DocumentTest size="2rem" />} text="We formulate the projects" />
-            <IconText icon={<Bug size="2rem" />} text="Then work out the bugs" />
-            <IconText icon={<Workshop size="2rem" />} text="Next we'll show you what we did" />
-            <IconText icon={<Deploy size="2rem" />} text="Allowing you to do it blazing fast" />
-            <IconText icon={<ChatOption size="2rem" />} text="We'll help along the way" />
-            <IconText icon={<Trophy size="2rem" />} text="You become a super hero" />
-            <Button label="Learn More About Us" onClick={()=>navigate('/about')} />
+            <IconText icon={<DocumentTest size="2rem" />} text="We Take Complex Projects" />
+            <IconText icon={<Bug size="2rem" />} text="Work Out The Bugs" />
+            <IconText icon={<Workshop size="2rem" />} text="Then Make It Simple" />
+            <IconText icon={<Deploy size="2rem" />} text="So All Can Understand" />
+            <IconText icon={<Connect size="2rem" />} text="No Strings Attached" />
+            <Button label="Why we're different" onClick={() => navigate('/about')} />
           </Box>
         </Box>
-        {/* <Box gap="small">
-          <TextSplit
-            title="Get started"
-            text="Explore and get inspired to learn something new, we'll make it as simple as possilbe."
-            image={data.rocks.childImageSharp.fluid}
-            buttonText="Go To Projects"
-            buttonLink="/projects"
-          />
-          <TextSplit
-            title="Who we are"
-            text="Just people who love seeing Science, Math, and Technology used in the real world and helping others realize it's not that complicated."
-            image={data.geometry.childImageSharp.fluid}
-            buttonText="Learn About Us"
-            buttonLink="/about"
-            flip
-          />
-          <TextSplit
-            title="How can we help you?"
-            text="Check out our professional services or reach out directly to see how we can help you make something simple."
-            image={data.handshake.childImageSharp.fluid}
-            buttonText="Contact Us"
-            buttonLink="/contact"
-            dark
-          />
-        </Box> */}
         <Sitemap />
       </Grommet>
     );

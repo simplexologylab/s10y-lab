@@ -11,10 +11,6 @@ const PrivacyLink = styled(Button)`
   font-size: 10px;
 `;
 
-const ButtonLink = styled(Button)`
-  box-shadow: none;
-`;
-
 export default () => (
   <Box>
     <Social text="follow us" />
