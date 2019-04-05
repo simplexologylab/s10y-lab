@@ -20,7 +20,7 @@ export default ({ text, duration, delay }) => {
   });
 
   return (
-    <Box direction="row" align="center" gap="2px">
+    <Box height="50px" direction="row" align="center" gap="2px">
       <Box>
         {text && (
           <TypedHeading level={2} margin="small" size="large">
