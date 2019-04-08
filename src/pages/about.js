@@ -26,9 +26,6 @@ class AboutPage extends Component {
           <Mission />
         </Box>
         <AboutUs stackImage={data.kid.childImageSharp.fluid} splitImage={data.spark.childImageSharp.fluid} />
-        <Box>
-          <Heading>About Our Projects</Heading>
-        </Box>
         <AboutProjects />
         <Sitemap />
       </Grommet>
