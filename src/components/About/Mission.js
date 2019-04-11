@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const Mission = styled(Paragraph)`
   font-family: 'Fira Sans';
   font-size: 2rem;
+  line-height: 1.2;
 `;
 
 const SpecialText = styled(Text)`
