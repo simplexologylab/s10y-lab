@@ -42,7 +42,6 @@ export default ({ stackImage, splitImage }) => (
   <ResponsiveContext.Consumer>
     {size => (
       <Box fill>
-        <Heading margin="small">About Us</Heading>
         <Stack anchor="right">
           {size !== 'small' && <Img fluid={stackImage} />}
           <Tabs>
@@ -59,7 +58,7 @@ export default ({ stackImage, splitImage }) => (
                   width={size !== 'small' && '45vw'}
                   justify="center"
                 >
-                  {tab.text}
+                  <Paragraph size={size === 'small' ? "medium" : size}>{tab.text}</Paragraph>
                 </Box>
               </Tab>
             ))}
@@ -88,7 +87,7 @@ export default ({ stackImage, splitImage }) => (
           text="Here in the lab we refer to those moments as sparks
               and our inspiration lives in generating as many sparks 
               as possible."
-          textSize="medium"
+          textSize="xlarge"
           image={splitImage}
         />
       </Box>

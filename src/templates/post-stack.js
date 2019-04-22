@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
-import { Grommet, Anchor, Layer, Box, Button, Heading, ResponsiveContext } from 'grommet';
-import { Menu, LinkPrevious, EmptyCircle } from 'grommet-icons';
+import { Grommet, Box, Button, Heading, ResponsiveContext } from 'grommet';
+import { Navigate, LinkPrevious, Apps, CircleQuestion, Inspect, Cart, Close } from 'grommet-icons';
 import styled from 'styled-components';
 
-const FixedButton = styled(Button)`
-  position: fixed;
-  bottom: 5vh;
-  left: 20px;
-  z-index: 100;
-`;
+import NavList from '../components/PostMenu/NavList';
+import Faqs from '../components/PostMenu/Faqs';
+import Questions from '../components/PostMenu/Questions';
+import Items from '../components/PostMenu/Items';
 
 const SiteHeading = styled(Button)`
   font-family: 'Rajdhani';
@@ -26,73 +24,74 @@ export default props => {
   const subPages = props.data.allMdx.edges;
   const siteTitle = props.data.site.siteMetadata.title;
 
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(<NavList pages={subPages} />);
+  const [menuOpen, setMenuOpen] = useState(true);
 
   return (
     <Grommet>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box>
-            <Box direction="row" pad={size}>
-              <Button basis="auto" plain label="back" icon={<LinkPrevious />} onClick={() => navigate('/projects')} />
-              <Box align="end" jusify="end" margin="xsmall" fill>
+          <Box direction="row">
+            {size === 'small' && (
+              <Box height="100vh" overflow="auto" flex="grow">
+                <Button fill icon={menuOpen ? <Close />: <Apps />} onClick={() => setMenuOpen(!menuOpen)} />
+              </Box>
+            )}
+            {((menuOpen && size === 'small') || size !== 'small') && (
+              <Box height="100vh" overflow="auto" flex="grow">
+                <Button
+                  basis="auto"
+                  margin="small"
+                  plain
+                  label="all projects"
+                  icon={<LinkPrevious />}
+                  onClick={() => navigate('/projects')}
+                />
+                <Box
+                  justify={size === 'small' ? 'start' : 'end'}
+                  direction="row"
+                  gap="medium"
+                  margin="small"
+                  width="medium"
+                >
+                  <Button onClick={() => setMenu(<NavList pages={subPages} />)}>
+                    <Box background="accent-1" pad="small" round elevation="medium">
+                      <Navigate />
+                    </Box>
+                  </Button>
+                  <Button onClick={() => setMenu(<Questions />)}>
+                    <Box background="accent-1" pad="small" round elevation="medium">
+                      <CircleQuestion />
+                    </Box>
+                  </Button>
+                  <Button onClick={() => setMenu(<Faqs />)}>
+                    <Box background="accent-1" pad="small" round elevation="medium">
+                      <Inspect />
+                    </Box>
+                  </Button>
+                  <Button onClick={() => setMenu(<Items />)}>
+                    <Box background="accent-1" pad="small" round elevation="medium">
+                      <Cart />
+                    </Box>
+                  </Button>
+                </Box>
+                <Box>{menu}</Box>
+              </Box>
+            )}
+            <Box pad={size} alignSelf="center" animation="fadeIn" height="100vh" overflow="auto" elevation="large">
+              <Box align="end" jusify="end" margin="xsmall" flex="grow">
                 <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
                 <TitleHeading level="1" size="small" margin="small">
                   {pageInfo.frontmatter.title}
                 </TitleHeading>
               </Box>
+              <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
+              {subPages.map(page => (
+                <Box id={page.node.id} flex="grow">
+                  <MDXRenderer>{page.node.code.body}</MDXRenderer>
+                </Box>
+              ))}
             </Box>
-            <Box>
-              <Box pad={size} alignSelf="center" animation="fadeIn">
-                <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
-                {subPages.map(page => (
-                  <Box id={page.node.id}>
-                    <MDXRenderer>{page.node.code.body}</MDXRenderer>
-                  </Box>
-                ))}
-              </Box>
-            </Box>
-            {menu ? (
-              <Layer
-                full="vertical"
-                position="left"
-                margin="10px"
-                onClickOutside={() => setMenu(false)}
-                onEsc={() => setMenu(false)}
-              >
-                <Box as="header" direction="row" elevation="medium" align="center" justify="center">
-                  <Heading level={3} margin="small">
-                    {pageInfo.frontmatter.title}
-                  </Heading>
-                </Box>
-                <Box flex overflow="auto" pad="xsmall">
-                  {subPages.map(page => (
-                    <Anchor
-                      href={`#${page.node.id}`}
-                      label={
-                        <Box direction="row" gap="medium" pad={{ vertical: 'medium', horizontal: 'xsmall' }}>
-                          <EmptyCircle />
-                          {page.node.frontmatter.title}
-                        </Box>
-                      }
-                    />
-                  ))}
-                </Box>
-                <Box as="footer" border={{ side: 'top' }} pad="small" align="center">
-                  <FixedButton primary label="Close" onClick={() => setMenu(false)} />
-                </Box>
-              </Layer>
-            ) : (
-              <Box animation="fadeIn" alignSelf="center">
-                <FixedButton
-                  icon={<Menu style={{ verticalAlign: 'bottom' }} />}
-                  primary
-                  color="accent-4"
-                  justify="stretch"
-                  onClick={() => setMenu(true)}
-                />
-              </Box>
-            )}
           </Box>
         )}
       </ResponsiveContext.Consumer>

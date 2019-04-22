@@ -1,8 +1,7 @@
 import React from 'react';
-import Img from 'gatsby-image';
 
-import { Box, Heading, Paragraph, Text, ResponsiveContext } from 'grommet';
-import { Clear, Like, Info, Currency, Bike, Test, Cycle, ChatOption } from 'grommet-icons';
+import { Box, Heading, Paragraph, ResponsiveContext } from 'grommet';
+import { Clear, Info, Currency, Bike, Test, Cycle, ChatOption } from 'grommet-icons';
 import styled from 'styled-components';
 
 import IconText from '../IconText';
@@ -13,15 +12,15 @@ const TextBlock = styled(Paragraph)`
   line-height: 1.2;
 `;
 
-const SpecialText = styled(Text)`
-  color: #92e600;
-  font-size: 2.5rem;
-`;
+// const SpecialText = styled(Text)`
+//   color: #92e600;
+//   font-size: 2.5rem;
+// `;
 
 export default () => (
   <ResponsiveContext.Consumer>
     {size => (
-      <Box gap="large" align="center" fill>
+      <Box gap="small" align="center" fill>
         <Box align="center" fill>
           <TextBlock textAlign="center" size="large">
             Our projects show others that you don't have to have some big fancy degree in order to tackle learning

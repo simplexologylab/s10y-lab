@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
-import { Grommet, Box, Heading } from 'grommet';
+import { Grommet, Box } from 'grommet';
 
 import config from '../../static/site-config';
 import Menu from '../components/Menu';
