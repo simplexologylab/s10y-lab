@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
-import { Grommet, Box, Button, Heading, ResponsiveContext } from 'grommet';
+import { Grommet, Box, Button, Heading, ResponsiveContext, DropButton } from 'grommet';
 import { Navigate, LinkPrevious, Apps, CircleQuestion, Inspect, Cart, Close } from 'grommet-icons';
 import styled from 'styled-components';
 
@@ -32,28 +32,26 @@ export default props => {
       <ResponsiveContext.Consumer>
         {size => (
           <Box direction="row">
-            {size === 'small' && (
+            {size !== 'small' && (
               <Box height="100vh" overflow="auto" flex="grow">
-                <Button fill icon={menuOpen ? <Close />: <Apps />} onClick={() => setMenuOpen(!menuOpen)} />
-              </Box>
-            )}
-            {((menuOpen && size === 'small') || size !== 'small') && (
-              <Box height="100vh" overflow="auto" flex="grow">
-                <Button
-                  basis="auto"
-                  margin="small"
-                  plain
-                  label="all projects"
-                  icon={<LinkPrevious />}
-                  onClick={() => navigate('/projects')}
-                />
-                <Box
-                  justify={size === 'small' ? 'start' : 'end'}
-                  direction="row"
-                  gap="medium"
-                  margin="small"
-                  width="medium"
-                >
+                <Box margin="xsmall" direction="row">
+                  <Box alignSelf="center"><Button
+                    basis="auto"
+                    margin="small"
+                    plain
+                    label="all projects"
+                    icon={<LinkPrevious />}
+                    onClick={() => navigate('/projects')}
+                    alignSelf="start"
+                  /></Box>
+                  <Box align="end" justify="end" flex="grow" margin="small">
+                    <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
+                    <TitleHeading level="1" size="small" margin="small">
+                      {pageInfo.frontmatter.title}
+                    </TitleHeading>
+                  </Box>
+                </Box>
+                <Box justify="center" direction="row" gap="medium" margin="small" width="medium">
                   <Button onClick={() => setMenu(<NavList pages={subPages} />)}>
                     <Box background="accent-1" pad="small" round elevation="medium">
                       <Navigate />
@@ -79,18 +77,62 @@ export default props => {
               </Box>
             )}
             <Box pad={size} alignSelf="center" animation="fadeIn" height="100vh" overflow="auto" elevation="large">
-              <Box align="end" jusify="end" margin="xsmall" flex="grow">
-                <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
-                <TitleHeading level="1" size="small" margin="small">
-                  {pageInfo.frontmatter.title}
-                </TitleHeading>
-              </Box>
-              <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
-              {subPages.map(page => (
-                <Box id={page.node.id} flex="grow">
-                  <MDXRenderer>{page.node.code.body}</MDXRenderer>
+              {size === 'small' && (
+                <Box direction="row" height="small">
+                  <DropButton
+                    icon={<Apps />}
+                    dropContent={
+                      <Box height="75vh" overflow="auto" flex="grow">
+                        <Button
+                          basis="auto"
+                          margin="small"
+                          plain
+                          label="all projects"
+                          icon={<LinkPrevious />}
+                          onClick={() => navigate('/projects')}
+                        />
+                        <Box direction="row" gap="medium" margin="small" width="medium" justify="center">
+                          <Button onClick={() => setMenu(<NavList pages={subPages} />)}>
+                            <Box background="accent-1" pad="small" round elevation="medium">
+                              <Navigate />
+                            </Box>
+                          </Button>
+                          <Button onClick={() => setMenu(<Questions />)}>
+                            <Box background="accent-1" pad="small" round elevation="medium">
+                              <CircleQuestion />
+                            </Box>
+                          </Button>
+                          <Button onClick={() => setMenu(<Faqs />)}>
+                            <Box background="accent-1" pad="small" round elevation="medium">
+                              <Inspect />
+                            </Box>
+                          </Button>
+                          <Button onClick={() => setMenu(<Items />)}>
+                            <Box background="accent-1" pad="small" round elevation="medium">
+                              <Cart />
+                            </Box>
+                          </Button>
+                        </Box>
+                        <Box>{menu}</Box>
+                      </Box>
+                    }
+                  />
+                  <Box align="end" jusify="end" margin="xsmall" flex="grow">
+                    <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
+                    <TitleHeading level="1" size="small" margin="small">
+                      {pageInfo.frontmatter.title}
+                    </TitleHeading>
+                  </Box>
                 </Box>
-              ))}
+              )}
+              <Box>
+                <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
+                {subPages.map(page => (
+                  <Box id={page.node.id} flex="grow">
+                    <MDXRenderer>{page.node.code.body}</MDXRenderer>
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Box>
         )}
