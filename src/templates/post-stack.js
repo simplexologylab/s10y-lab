@@ -78,9 +78,10 @@ export default props => {
             )}
             <Box pad={size} alignSelf="center" animation="fadeIn" height="100vh" overflow="auto" elevation="large">
               {size === 'small' && (
-                <Box direction="row" height="small">
+                <Box direction="row" fill="width" align="center">
                   <DropButton
                     icon={<Apps />}
+                    margin="xsmall"
                     dropContent={
                       <Box height="75vh" overflow="auto" flex="grow">
                         <Button
@@ -117,7 +118,7 @@ export default props => {
                       </Box>
                     }
                   />
-                  <Box align="end" jusify="end" margin="xsmall" flex="grow">
+                  <Box align="end" jusify="end" margin="xsmall" flex>
                     <SiteHeading plain label={siteTitle} onClick={() => navigate(`/`)} />
                     <TitleHeading level="1" size="small" margin="small">
                       {pageInfo.frontmatter.title}
