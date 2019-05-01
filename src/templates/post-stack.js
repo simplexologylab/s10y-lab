@@ -78,7 +78,7 @@ export default props => {
             )}
             <Box pad={size} alignSelf="center" animation="fadeIn" height="100vh" overflow="auto" elevation="large">
               {size === 'small' && (
-                <Box direction="row" fill="width" align="center">
+                <Box direction="row" height="small" align="center">
                   <DropButton
                     icon={<Apps />}
                     margin="xsmall"
