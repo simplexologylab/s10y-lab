@@ -126,7 +126,7 @@ export default props => {
                   </Box>
                 </Box>
               )}
-              <Box>
+              <Box overflow="auto">
                 <MDXRenderer>{pageInfo.code.body}</MDXRenderer>
                 {subPages.map(page => (
                   <Box id={page.node.id} flex="grow">
