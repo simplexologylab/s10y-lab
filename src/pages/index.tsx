@@ -11,6 +11,8 @@ import Mission from "../components/mission"
 import ProjectDisplay from "../components/project-display"
 
 import { Box, Grid, Heading, Text, Button } from "grommet"
+import Contact from "../components/contact"
+
 import { Deploy } from "grommet-icons"
 
 const SiteLink = styled(Link)`
@@ -50,67 +52,20 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Simplexology Lab" />
       <Box background="black" height="small" align="center" justify="center">
         <MainHeading margin="none">we make it simple.</MainHeading>
       </Box>
       <Box
-        fill
-        background="white"
-        direction="row-responsive"
-        wrap
+        align="center"
+        height="medium"
+        width="100vw"
         justify="center"
-        pad="medium"
-        gap="large"
+        background="white"
+        animation="fadeIn"
       >
-        <Box width="medium" justify="center" gap="small" pad="small">
-          <Heading level={5} margin="none">
-            {`Some heading`} yikes
-          </Heading>
-          <Heading
-            level={3}
-            margin="none"
-          >{`Helping you design, establish, and achieve your goals`}</Heading>
-          <Text>
-            {`We specialize in Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.`}
-          </Text>
-          <Button color="brand" label="See Our Services" />
-        </Box>
-        <Grid
-          gap="small"
-          pad="large"
-          alignContent="start"
-          columns={{ count: 2, size: "auto" }}
-        >
-          <IconTitleCard
-            title="Title Ed"
-            text={`Etsy banjo poke  bread taiyaki pok pok
-              art party seitan  you probably haven't heard of them vice.`}
-            icon={<Deploy />}
-          />
-          <IconTitleCard
-            title="Title Bu"
-            text={`Etsy banjo poke  taiyaki pok pok
-              art party seitan heard of them vice.`}
-            icon={<Deploy />}
-          />
-          <IconTitleCard
-            title="Title We"
-            text={`williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.`}
-            icon={<Deploy />}
-          />
-          <IconTitleCard
-            title="Title Id"
-            text={`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art t heard of them vice.`}
-            icon={<Deploy />}
-          />
-        </Grid>
-      </Box>
-      <Box fill>
-        <ProjectDisplay />
+        <Mission />
+        <SiteLink to="/about">More about us</SiteLink>
       </Box>
       <Box
         background="black"
@@ -134,8 +89,7 @@ const IndexPage = () => {
               Our Ideas
             </Heading>
             <Text textAlign="end">
-              {`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.`}
+              {`We believe in leaving the world a better place than we found it by sharing our experiences (and failures) as we explore new technologies and ideas.`}
             </Text>
             <Button alignSelf="end">Link</Button>
           </Box>
@@ -163,30 +117,70 @@ const IndexPage = () => {
             />
           </Box>
           <Box>
-            <Heading level={3}>Our Systems</Heading>
+            <Heading level={3}>Our Services</Heading>
             <Text>
-              {`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.`}
+              {`No two situations are the same. Let us help you navigate the seemingly complex technology driven world to reach your goals.`}
             </Text>
             <Button>Link</Button>
           </Box>
         </Box>
       </Box>
-      <Box
-        align="center"
-        height="medium"
-        width="100vw"
-        justify="center"
-        background="white"
-        animation="fadeIn"
-      >
-        <Mission />
-        <SiteLink to="/about">More about us</SiteLink>
+      <Box fill>
+        <ProjectDisplay />
       </Box>
-      {/* <Box background="black">
-        <Heading>Featured Content</Heading>
-        thing 1 thing 2 thing 3
+      {/* <Box
+        fill
+        background="white"
+        direction="row-responsive"
+        wrap
+        justify="center"
+        pad="medium"
+        gap="large"
+      >
+        <Box width="medium" justify="center" gap="small" pad="small">
+          <Heading level={5} margin="none">
+            {`Simply put.`}
+          </Heading>
+          <Heading
+            level={3}
+            margin="none"
+          >{`Helping you design, establish, and achieve your goals`}</Heading>
+          <Text>
+            {`You have a goal. We have a unique blend of industry and technical experience that will help get you there.`}
+          </Text>
+          <Button color="brand" label="See Our Services" />
+        </Box>
+        <Grid
+          gap="small"
+          pad="large"
+          alignContent="start"
+          columns={{ count: 2, size: "auto" }}
+        >
+          <IconTitleCard
+            title="Education Services"
+            text={`Never stop learning. Let us help you incorporate modern technologies into whatever you're teaching to inspire learning at all ages.`}
+            icon={<Deploy />}
+          />
+          {/* <IconTitleCard
+            title="Business Services"
+            text={`Don't be stale. Man`}
+            icon={<Deploy />}
+          /> 
+          <IconTitleCard
+            title="Web Development Services"
+            text={`Increase your web presense. We offer a custom fit approach to help you achieve your web needs.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Idea Generation"
+            text={`We love new things. Leverage our unique experiences both technically and in a broad range of business markets to amplify your thoughts and ideas.`}
+            icon={<Deploy />}
+          />
+        </Grid>
       </Box> */}
+      <Box background="white" fill pad="small">
+        <Contact />
+      </Box>
     </Layout>
   )
 }

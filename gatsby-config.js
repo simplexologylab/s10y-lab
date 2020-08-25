@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `A Simple Mockup`,
+    title: `Simplexology Lab`,
     description: `Something easy to get started with.`,
     author: `@ramseytisher`,
   },

@@ -3,12 +3,15 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import { HoverGrow } from "../components/animations"
+import SEO from "../components/seo"
 
 import { ResponsiveContext, Box, Text } from "grommet"
 
 const BlogPage = ({ data }) => {
   return (
     <Layout>
+      <SEO title="Our Blog" />
+
       <ResponsiveContext>
         {size => (
           <Box
@@ -48,18 +51,18 @@ const BlogPage = ({ data }) => {
                       </Box>
                     </Box>
                   ) : (
-                    <Box direction="row" gap="small">
-                      <Box width="medium">
-                        <Text size="small">{frontmatter.description}</Text>
+                      <Box direction="row" gap="small">
+                        <Box width="medium">
+                          <Text size="small">{frontmatter.description}</Text>
+                        </Box>
+                        <Box width="medium">
+                          <Img
+                            key={id}
+                            fluid={frontmatter.image.childImageSharp.fluid}
+                          />
+                        </Box>
                       </Box>
-                      <Box width="medium">
-                        <Img
-                          key={id}
-                          fluid={frontmatter.image.childImageSharp.fluid}
-                        />
-                      </Box>
-                    </Box>
-                  )}
+                    )}
                 </Box>
               ))}
             </Box>

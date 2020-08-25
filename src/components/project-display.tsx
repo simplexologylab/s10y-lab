@@ -85,10 +85,7 @@ const ProjectDisplay = () => {
               <Box background="dark-1" width="4px" height="xsmall" />
               <Box width="medium" justify="center">
                 <Text>
-                  {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Etiam ac lectus nec enim semper tincidunt. Phasellus et tempor 
-                    nulla, quis euismod lectus. Vivamus varius imperdiet sapien eu 
-                    eleifend.`}
+                  {`Our projects show others that you don't have to have some big fancy degree in order to tackle learning something new, just an open mind and willingness to try new things.`}
                 </Text>
               </Box>
             </Box>
@@ -119,15 +116,15 @@ const ProjectDisplay = () => {
                   ))}
                 </Box>
               ) : (
-                <Box width="medium" justify="center" pad="medium">
-                  <Text>
-                    {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  <Box width="medium" justify="center" pad="medium">
+                    <Text>
+                      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Etiam ac lectus nec enim semper tincidunt. Phasellus et tempor 
                     nulla, quis euismod lectus. Vivamus varius imperdiet sapien eu 
                     eleifend.`}
-                  </Text>
-                </Box>
-              )}
+                    </Text>
+                  </Box>
+                )}
             </Box>
           )
         }
