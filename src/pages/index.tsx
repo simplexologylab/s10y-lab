@@ -65,7 +65,7 @@ const IndexPage = () => {
       >
         <Box width="medium" justify="center" gap="small" pad="small">
           <Heading level={5} margin="none">
-            {`Some heading`}
+            {`Some heading`} yikes
           </Heading>
           <Heading
             level={3}
