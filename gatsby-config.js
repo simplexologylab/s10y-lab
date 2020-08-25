@@ -1,33 +1,33 @@
 module.exports = {
   siteMetadata: {
-    title: `Simplexology Lab`,
-    author: `Ramsey Tisher`,
-    description: `Making the complex, simple.`,
-    siteUrl: `https://www.simplexology.com/`,
-    social: {
-      twitter: `simplexology`,
-    },
+    title: `A Simple Mockup`,
+    description: `Something easy to get started with.`,
+    author: `@ramseytisher`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1035,
-              sizeByPixelDensity: true
-            }
-          }
-        ]
-      }
+              sizeByPixelDensity: true,
+            },
+          },
+        ],
+      },
     },
-    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-transformer-json`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        typeName: `Json`, // a fixed string
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -40,78 +40,33 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/images`,
-        name: `images`
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: [
-            'ZCOOL KuaiLe', 
-            'Libre Barcode 128 Text', 
-            'Shadows Into Light', 
-            'VT323', 
-            'Sarabun',
-            'Fira Sans',
-            'Rajdhani',
-            'Antic Slab',
-            'Open Sans'
-          ]
-        }
-      }
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        fonts: [`Ubuntu`, `Rokkitt`, `Rajdhani`, `VT323`],
+        display: `swap`,
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 }
