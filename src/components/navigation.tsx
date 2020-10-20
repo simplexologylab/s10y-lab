@@ -3,17 +3,28 @@ import { Link } from "gatsby"
 
 import styled from "styled-components"
 
-import { ResponsiveContext, Button, Box, Layer } from "grommet"
+import { ResponsiveContext, Button, Box, Text } from "grommet"
 import { Menu, Close, Test, Article } from "grommet-icons"
 
 const NavLink = styled(Link)`
   text-decoration: none;
   font-family: "Rokkitt";
   color: black;
+  font-size: 1.25rem;
 
   &:hover {
     border-bottom: 5px solid orange;
   }
+`
+const NavBox = styled(Box)`
+  border-bottom: 10px solid orange;
+`
+const PreText = styled(Text)`
+  font-size: 0.8em;
+  line-height: none;
+`
+const MainText = styled(Text)`
+  font-size: 2em;
 `
 
 const Navigation = () => {
@@ -21,69 +32,50 @@ const Navigation = () => {
   return (
     <ResponsiveContext.Consumer>
       {size => {
-        if (size === "small") {
-          return (
-            <>
-              <Button
-                icon={showMenu ? <Close /> : <Menu />}
-                onClick={() => setShowMenu(!showMenu)}
-              />
-              {showMenu && (
-                <Layer
-                  onEsc={() => setShowMenu(false)}
-                  onClickOutside={() => setShowMenu(false)}
-                  responsive={false}
-                >
-                  <Box pad="large" gap="large" align="center">
-                    <NavLink to="/blog">
-                      [ Our Blog {<Article size="1.1em" />} ]
-                    </NavLink>
-                    <NavLink to="/the-lab">
-                      [ The Lab {<Test size="1.1em" />} ]
-                    </NavLink>
-
-                    <NavLink to="/services">Services</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/contact">
-                      <Button label="Contact Us" hoverIndicator primary />
-                    </NavLink>
-                  </Box>
-                </Layer>
-              )}
-            </>
-          )
-        } else {
-          return (
+        return (
+          <NavBox justify="center" align="center">
             <Box
               direction="row"
+              gap="large"
               wrap
-              gap="small"
-              justify="center"
               align="center"
+              justify="center"
             >
-              <Box
-                direction="row-responsive"
-                wrap
-                align="center"
-                justify="center"
-                gap="small"
-              >
-                <NavLink to="/blog">
-                  [ Our Blog {<Article size="1.1em" />} ]
-                </NavLink>
-                <NavLink to="/the-lab">
-                  [ The Lab {<Test size="1.1em" />} ]
-                </NavLink>
-
-                <NavLink to="/services">Services</NavLink>
-                <NavLink to="/about">About</NavLink>
-              </Box>
-              <Link to="/contact">
-                <Button label="Contact Us" hoverIndicator primary />
-              </Link>
+              <NavLink to="/blog">
+                <Box align="end">
+                  <PreText>the</PreText>
+                  <MainText>Blog</MainText>
+                </Box>
+              </NavLink>
+              <NavLink to="/the-lab">
+                <Box align="end">
+                  <PreText>find us in</PreText>
+                  <MainText>The Lab</MainText>
+                </Box>
+              </NavLink>
+              <NavLink to="/about">
+                <Box align="end">
+                  <PreText>more</PreText>
+                  <MainText>About Us</MainText>
+                </Box>
+              </NavLink>
+              <NavLink to="/services">
+                <Box align="end">
+                  <PreText>check out</PreText>
+                  <MainText>Services</MainText>
+                </Box>
+              </NavLink>
             </Box>
-          )
-        }
+            <Link to="/contact">
+              <Button
+                label="Contact Us"
+                margin="small"
+                hoverIndicator
+                primary
+              />
+            </Link>
+          </NavBox>
+        )
       }}
     </ResponsiveContext.Consumer>
   )

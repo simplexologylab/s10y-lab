@@ -52,11 +52,26 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Simplexology Lab" />
-      <Box background="black" height="small" align="center" justify="center">
-        <MainHeading margin="none">we make it simple.</MainHeading>
-      </Box>
+      <SEO title="Home" />
       <Box
+        background="white"
+        height="small"
+        align="center"
+        justify="center"
+        gap="medium"
+      >
+        <MainHeading margin="none">we make it simple.</MainHeading>
+        <Box width="large">
+          <Text textAlign="center" size="large">
+            Stop struggling with making the best technology for your business,
+            classroom, or even personal hobbies. Leverage our years of
+            experience implementing technology solutions to amplify your ideas
+            into reality.{" "}
+          </Text>
+        </Box>
+
+      </Box>
+      {/* <Box
         align="center"
         height="medium"
         width="100vw"
@@ -66,15 +81,9 @@ const IndexPage = () => {
       >
         <Mission />
         <SiteLink to="/about">More about us</SiteLink>
-      </Box>
-      <Box
-        background="black"
-        direction="row-responsive"
-        gap="medium"
-        justify="center"
-      >
+      </Box> */}
+      <Box direction="row-responsive" gap="medium" justify="center">
         <Box
-          background="white"
           pad="medium"
           height="medium"
           direction="row"
@@ -101,7 +110,6 @@ const IndexPage = () => {
           </Box>
         </Box>
         <Box
-          background="black"
           pad="medium"
           height="medium"
           width="large"

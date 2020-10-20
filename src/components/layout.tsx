@@ -45,25 +45,17 @@ const Layout = ({ children }: Props) => {
 
   return (
     <Grommet theme={theme} full>
-      <Box overflow="hidden" background="black">
-        <Box
-          direction="row"
-          align="center"
-          justify="between"
-          background="white"
-          pad={{ horizontal: "large", vertical: "small" }}
-        >
-          <NavHeading to="/">
-            <Box width="small">
-              <Img fluid={data.logo.childImageSharp.fluid} />
-            </Box>
-          </NavHeading>
-          <Navigation />
-        </Box>
-        <Box align="center">{children}</Box>
-        <Box>
-          <Sitemap />
-        </Box>
+      <Box align="center" pad="small">
+        <NavHeading to="/">
+          <Box width="medium" flex="shrink">
+            <Img fluid={data.logo.childImageSharp.fluid} />
+          </Box>
+        </NavHeading>
+      </Box>
+      <Navigation />
+      <Box align="center">{children}</Box>
+      <Box>
+        <Sitemap />
       </Box>
     </Grommet>
   )
