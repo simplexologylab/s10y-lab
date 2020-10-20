@@ -13,11 +13,15 @@ const NavLink = styled(Link)`
   font-size: 1.25rem;
 
   &:hover {
-    border-bottom: 5px solid orange;
+    border-right: 5px solid orange;
   }
 `
-const NavBox = styled(Box)`
-  border-bottom: 10px solid orange;
+const NavBox = styled(Box)`  
+  border-top: 4px dashed gray;
+  border-bottom: 8px solid orange;
+  box-shadow: 0px 3px 6px #cf7004;
+  padding: 10px;
+  margin: 10px 0px;
 `
 const PreText = styled(Text)`
   font-size: 0.8em;
