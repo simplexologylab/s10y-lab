@@ -14,6 +14,8 @@ export const createContact = /* GraphQL */ `
       name
       contactList
       message
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -29,6 +31,8 @@ export const updateContact = /* GraphQL */ `
       name
       contactList
       message
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -44,6 +48,8 @@ export const deleteContact = /* GraphQL */ `
       name
       contactList
       message
+      createdAt
+      updatedAt
     }
   }
 `;

@@ -11,6 +11,8 @@ export const getContact = /* GraphQL */ `
       name
       contactList
       message
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -28,6 +30,8 @@ export const listContacts = /* GraphQL */ `
         name
         contactList
         message
+        createdAt
+        updatedAt
       }
       nextToken
     }

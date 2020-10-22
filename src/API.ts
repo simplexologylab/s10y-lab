@@ -124,6 +124,8 @@ export type CreateContactMutation = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -141,6 +143,8 @@ export type UpdateContactMutation = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -158,6 +162,8 @@ export type DeleteContactMutation = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -174,6 +180,8 @@ export type GetContactQuery = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -194,6 +202,8 @@ export type ListContactsQuery = {
       name: string,
       contactList: boolean,
       message: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -208,6 +218,8 @@ export type OnCreateContactSubscription = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -220,6 +232,8 @@ export type OnUpdateContactSubscription = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -232,5 +246,7 @@ export type OnDeleteContactSubscription = {
     name: string,
     contactList: boolean,
     message: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };

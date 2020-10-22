@@ -1,20 +1,20 @@
 {
-    "api": {
-        "mockupsApi": {
-            "service": "AppSync",
-            "providerPlugin": "awscloudformation",
-            "output": {
-                "authConfig": {
-                    "additionalAuthenticationProviders": [],
-                    "defaultAuthentication": {
-                        "authenticationType": "API_KEY",
-                        "apiKeyConfig": {
-                            "description": "devApiKey",
-                            "apiKeyExpirationDays": "300"
-                        }
-                    }
-                }
+  "api": {
+    "s10ylab": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": "s10ylab-api-key"
             }
+          },
+          "additionalAuthenticationProviders": []
         }
+      }
     }
+  }
 }
