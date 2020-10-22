@@ -27,7 +27,6 @@ const SiteLink = styled(Link)`
 
 const MainHeading = styled(Heading)`
   font-family: "Ubuntu";
-  font-size: 3em;
 `
 
 const IndexPage = () => {
@@ -40,7 +39,7 @@ const IndexPage = () => {
           }
         }
       }
-      tools: file(relativePath: { eq: "tools.jpg" }) {
+      choice: file(relativePath: { eq: "choice.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 200) {
             ...GatsbyImageSharpFluid
@@ -54,11 +53,12 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <Box
+        margin="small"
         background="white"
-        height="small"
         align="center"
         justify="center"
         gap="medium"
+        animation="fadeIn"
       >
         <MainHeading margin="none">we make it simple.</MainHeading>
         <Box width="large">
@@ -69,7 +69,6 @@ const IndexPage = () => {
             into reality.{" "}
           </Text>
         </Box>
-
       </Box>
       {/* <Box
         align="center"
@@ -82,59 +81,71 @@ const IndexPage = () => {
         <Mission />
         <SiteLink to="/about">More about us</SiteLink>
       </Box> */}
-      <Box direction="row-responsive" gap="medium" justify="center">
+      <Box
+        direction="row-responsive"
+        gap="medium"
+        justify="center"
+        margin="medium"
+      >
         <Box
-          pad="medium"
+          pad="small"
           height="medium"
-          direction="row"
           align="center"
-          justify="end"
           width="large"
           gap="medium"
           animation="slideRight"
+          border={{ color: "dark-1", size: "large", side: "top" }}
         >
-          <Box alignContent="center" width="medium">
-            <Heading level={3} alignSelf="end">
-              Our Ideas
-            </Heading>
-            <Text textAlign="end">
-              {`We believe in leaving the world a better place than we found it by sharing our experiences (and failures) as we explore new technologies and ideas.`}
-            </Text>
-            <Button alignSelf="end">Link</Button>
-          </Box>
-          <Box height="small" width="small">
-            <Img
-              fluid={image.lightbulb.childImageSharp.fluid}
-              imgStyle={{ objectFit: "contain" }}
-            />
+          <Heading level={2}>we make content</Heading>
+          <Box direction="row" align="center">
+            <Box
+              alignContent="center"
+              width="medium"
+              pad="small"
+              border={{ color: "accent-1", size: "medium", side: "right" }}
+            >
+              <Text textAlign="end">
+                We believe in leaving the world a better place than we found it.
+                To us that means as we explore new technologies and ideas we
+                want to share our experiences (and failures) for anyone
+                interested.
+              </Text>
+            </Box>
+            <Box height="small" width="small">
+              <Img
+                fluid={image.lightbulb.childImageSharp.fluid}
+                imgStyle={{ objectFit: "contain" }}
+              />
+            </Box>
           </Box>
         </Box>
         <Box
-          pad="medium"
+          pad="small"
           height="medium"
-          width="large"
-          direction="row"
           align="center"
+          width="large"
           gap="medium"
-          animation="slideDown"
+          animation="slideLeft"
+          border={{ color: "dark-1", size: "large", side: "top" }}
         >
-          <Box height="small" width="medium">
-            <Img
-              fluid={image.tools.childImageSharp.fluid}
-              imgStyle={{ objectFit: "contain" }}
-            />
-          </Box>
-          <Box>
-            <Heading level={3}>Our Services</Heading>
-            <Text>
-              {`No two situations are the same. Let us help you navigate the seemingly complex technology driven world to reach your goals.`}
-            </Text>
-            <Button>Link</Button>
+          <Heading level={2}>we help others</Heading>
+          <Box direction="row" align="center">
+            <Box height="small" width="small">
+              <Img
+                fluid={image.choice.childImageSharp.fluid}
+                imgStyle={{ objectFit: "contain" }}
+              />
+            </Box>
+            <Box alignContent="center" width="medium" pad="small" border={{ color: "accent-1", size: "medium", side: "left" }}>
+              <Text textAlign="start">
+                When it comes to technology there are so many options it is
+                often overwhelming to make a choice. We want to help by offering
+                our experience over a broad range of industries to ensure you're
+                making the right decisions.
+              </Text>
+            </Box>
           </Box>
         </Box>
-      </Box>
-      <Box fill>
-        <ProjectDisplay />
       </Box>
       {/* <Box
         fill

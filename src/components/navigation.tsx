@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import { ResponsiveContext, Button, Box, Text } from "grommet"
-import { Menu, Close, Test, Article } from "grommet-icons"
 
 const NavLink = styled(Link)`
   text-decoration: none;
