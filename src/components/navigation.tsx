@@ -62,10 +62,16 @@ const Navigation = () => {
                   <MainText>About Us</MainText>
                 </Box>
               </NavLink>
-              <NavLink to="/services">
+              {/* <NavLink to="/services">
                 <Box align="end">
-                  <PreText>check out</PreText>
+                  <PreText>check out our</PreText>
                   <MainText>Services</MainText>
+                </Box>
+              </NavLink> */}
+              <NavLink to="/contact">
+                <Box align="end">
+                  <PreText>if you need to</PreText>
+                  <MainText>Contact Us</MainText>
                 </Box>
               </NavLink>
             </Box>
