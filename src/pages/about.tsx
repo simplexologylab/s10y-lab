@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import Contact from "../components/contact"
@@ -8,7 +9,18 @@ import Typer from "../components/typer"
 import TextImage from "../components/text-image"
 import Mission from "../components/mission"
 
-import { Box, Paragraph, Heading } from "grommet"
+import { Box, Paragraph, Heading, Text } from "grommet"
+
+const StyledParagraph = styled(Paragraph)`
+  font-family: "Cousine";
+  font-size: 1.2rem;
+  line-height: 1.2;
+`
+
+const SpecialText = styled(Text)`
+  color: #228be6;
+  font-weight: bold;
+`
 
 const AboutPage = () => {
   const image = useStaticQuery(graphql`
@@ -33,11 +45,31 @@ const AboutPage = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Box background="black" animation="fadeIn">
+      <Box animation="fadeIn">
         <Mission />
       </Box>
 
-      <TextImage
+      <Box pad="small" align="center" fill="horizontal">
+        <StyledParagraph>
+          When it comes to technology the world is constantly changing with more
+          options than ever. <SpecialText>We believe deeply</SpecialText> in
+          continual learning in areas we are passionate about like coding, web
+          development, robotics, artificial intelligence, and many others.
+        </StyledParagraph>
+        <StyledParagraph>
+          <SpecialText>We have a passion</SpecialText> for teaching others about
+          technology and how it can improve their business operations,
+          educational experiences or personal life. Not only do we want to help
+          you but we also find joy in helping you learn and understand along the
+          way.
+        </StyledParagraph>
+        <StyledParagraph>
+          <SpecialText>We love </SpecialText>exploring new ideas. If you have an
+          idea and need assistance with technology we can help.
+        </StyledParagraph>
+      </Box>
+
+      {/* <TextImage
         flip
         background="white"
         text="Our content and services are designed to assist those that have a passion for teaching others about technology."
@@ -60,7 +92,7 @@ const AboutPage = () => {
             seeing "hello, world!" display on a computer screen.`}
           </Paragraph>
         </Box>
-      </Box>
+      </Box> */}
       {/* <Box
         direction="row"
         gap="small"
@@ -79,7 +111,7 @@ const AboutPage = () => {
           <Button label="Projects" color="black" />
         </Link>
       </Box> */}
-      <TextImage
+      {/* <TextImage
         text={`Our projects are a way for us to create, build, and explore new technologies; leaving the technical world a little better than we found it.`}
         image={image.shapes.childImageSharp.fluid}
         background="white"
@@ -112,7 +144,7 @@ const AboutPage = () => {
         text={`Our content and services are designed to assist those that have a passion for teaching others about technology.`}
         image={image.about1.childImageSharp.fluid}
         background="white"
-      />
+      /> */}
       {/* <Box
         direction="row-responsive"
         wrap

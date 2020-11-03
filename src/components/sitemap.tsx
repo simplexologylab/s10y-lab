@@ -17,13 +17,13 @@ export default () => (
     <SiteLink to="/services">Services We Provide</SiteLink>
     <SiteLink to="/contact">Contact Us</SiteLink>
     <Box direction="row" gap="small">
-      <Button>
+      <Button href="https://twitter.com/simplexology" target="_blank">
         <Twitter />
       </Button>
-      <Button>
+      <Button onClick={() => alert('Still getting this setup, stay tuned ...')}>
         <Instagram />
       </Button>
-      <Button>
+      <Button onClick={() => alert('Still getting this setup, stay tuned ...')}>
         <Github />
       </Button>
     </Box>

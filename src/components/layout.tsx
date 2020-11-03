@@ -12,14 +12,16 @@ const theme = {
   global: {
     colors: {
       brand: "#228BE6",
-      "accent-1": "#F39237",
+      "accent-1": "#228BE6",
+      "accent-2": "#92E600",
+      "accent-3": "#FFC600",
     },
     font: {
       family: "Ubuntu",
       size: "18px",
-      height: "20px",
-    },
-  },
+      height: "20px"
+    }
+  }
 }
 
 const NavHeading = styled(Link)`
@@ -53,7 +55,9 @@ const Layout = ({ children }: Props) => {
         </NavHeading>
       </Box>
       <Navigation />
-      <Box align="center">{children}</Box>
+      <Box align="center">
+        {children}
+      </Box>
       <Box>
         <Sitemap />
       </Box>

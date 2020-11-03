@@ -61,7 +61,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Ubuntu`, `Rokkitt`, `Rajdhani`, `VT323`],
+        fonts: [`Ubuntu`, `Rokkitt`, `Rajdhani`, `VT323`, `Cousine`],
         display: `swap`,
       },
     },

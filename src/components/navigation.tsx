@@ -17,8 +17,8 @@ const NavLink = styled(Link)`
 `
 const NavBox = styled(Box)`  
   border-top: 4px dashed gray;
-  border-bottom: 8px solid orange;
-  box-shadow: 0px 3px 6px #cf7004;
+  border-bottom: 8px solid #FFC600;
+  box-shadow: 0px 3px 6px #ffc800;
   padding: 10px;
   margin: 10px 0px;
 `

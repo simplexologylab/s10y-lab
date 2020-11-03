@@ -25,7 +25,7 @@ export default ({ elevate }: Props) => (
           plain
           icon={<Twitter />}
           label="Twitter"
-          href="http://www.twitter.com/ramseytisher"
+          href="http://www.twitter.com/simplexology"
           target="_blank"
         />
         <Button plain icon={<Instagram />} label="Instagram" />
