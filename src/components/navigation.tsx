@@ -3,31 +3,16 @@ import { Link } from "gatsby"
 
 import styled from "styled-components"
 
-import { ResponsiveContext, Button, Box, Text } from "grommet"
+import { ResponsiveContext, Button, Box } from "grommet"
 
-const NavLink = styled(Link)`
-  text-decoration: none;
-  font-family: "Rokkitt";
-  color: black;
-  font-size: 1.25rem;
+import NavLink from "./nav-link"
 
-  &:hover {
-    border-right: 5px solid orange;
-  }
-`
 const NavBox = styled(Box)`  
   border-top: 4px dashed gray;
   border-bottom: 8px solid #FFC600;
   box-shadow: 0px 3px 6px #ffc800;
   padding: 10px;
   margin: 10px 0px;
-`
-const PreText = styled(Text)`
-  font-size: 0.8em;
-  line-height: none;
-`
-const MainText = styled(Text)`
-  font-size: 2em;
 `
 
 const Navigation = () => {
@@ -44,36 +29,11 @@ const Navigation = () => {
               align="center"
               justify="center"
             >
-              <NavLink to="/blog">
-                <Box align="end">
-                  <PreText>the</PreText>
-                  <MainText>Blog</MainText>
-                </Box>
-              </NavLink>
-              <NavLink to="/the-lab">
-                <Box align="end">
-                  <PreText>find us in</PreText>
-                  <MainText>The Lab</MainText>
-                </Box>
-              </NavLink>
-              <NavLink to="/about">
-                <Box align="end">
-                  <PreText>more</PreText>
-                  <MainText>About Us</MainText>
-                </Box>
-              </NavLink>
-              {/* <NavLink to="/services">
-                <Box align="end">
-                  <PreText>check out our</PreText>
-                  <MainText>Services</MainText>
-                </Box>
-              </NavLink> */}
-              <NavLink to="/contact">
-                <Box align="end">
-                  <PreText>if you need to</PreText>
-                  <MainText>Contact Us</MainText>
-                </Box>
-              </NavLink>
+              <NavLink link="/blog" pre="the" text="Blog" />
+              <NavLink link="/the-lab" pre="find us in" text="The Lab" />
+              <NavLink link="/about" pre="more" text="About Us" />
+              <NavLink link="/services" pre="check out our" text="Services" />
+              {/* <NavLink link="/contact" pre="if you need to" text="Contact Us" /> */}
             </Box>
             <Link to="/contact">
               <Button

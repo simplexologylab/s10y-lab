@@ -49,13 +49,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `simplexology-lab`,
+        short_name: `s10y-lab`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#92E600`,
+        theme_color: `#92E600`,
+        display: `browser`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     {

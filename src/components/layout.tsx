@@ -37,8 +37,8 @@ const Layout = ({ children }: Props) => {
     query {
       logo: file(relativePath: { eq: "simple-logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 250) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -46,11 +46,11 @@ const Layout = ({ children }: Props) => {
   `)
 
   return (
-    <Grommet theme={theme} full>
-      <Box align="center" pad="small">
+    <Grommet theme={theme}>
+      <Box align="center">
         <NavHeading to="/">
-          <Box width="medium" flex="shrink">
-            <Img fluid={data.logo.childImageSharp.fluid} />
+          <Box pad={{ horizontal: "medium" }}>
+            <Img fixed={data.logo.childImageSharp.fixed} />
           </Box>
         </NavHeading>
       </Box>
