@@ -141,13 +141,13 @@ const ServicesPage = () => {
           margin={{ vertical: 'large' }}
           align="center"
           width="large"
+          gap="xsmall"
         >
-          <Heading>General Title</Heading>
+          <Heading>It all starts here</Heading>
           <Text>
-            Booty jack long clothes to go on account snow keelhaul lanyard brig
-            coffer bounty. Walk the plank belaying pin heave down spike topmast
-            tackle squiffy crack Jennys tea cup barkadeer furl. Heave to lookout
-            pink Privateer Sea Legs chantey pressgang port gun provost.
+            {`If you think we can help or even if you're not sure, 
+            by all means let us know and we'll be in touch. We offer free sessions
+            to explore your needs to see if we're a match.`}
           </Text>
           <Link to="/contact">
             <Button primary hoverIndicator label="Contact Us" />
