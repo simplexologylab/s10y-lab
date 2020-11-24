@@ -19,6 +19,7 @@ export default () => (
     Our mission is to <SpecialText size="xlarge">understand</SpecialText> the
     seemingly complex world around us and to{' '}
     <SpecialText size="xlarge">inspire</SpecialText> learning by{' '}
+    <br/>
     <SpecialText size="xlarge">making it simple</SpecialText>
   </Mission>
 )

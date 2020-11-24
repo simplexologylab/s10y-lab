@@ -1,6 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
 
 import { Box, Heading, Text, ResponsiveContext } from 'grommet'
 
@@ -8,9 +6,10 @@ interface Props {
   title: string
   text: string
   button?: any
+  cards?: any
 }
 
-const ServiceCard = ({ title, text, button }: Props) => (
+const ServiceCard = ({ title, text, button, cards }: Props) => (
   <ResponsiveContext.Consumer>
     {size => (
       <Box
@@ -23,11 +22,12 @@ const ServiceCard = ({ title, text, button }: Props) => (
         width={size !== 'small' && 'medium'}
       >
         <Heading level={3} margin="xsmall">
-          {title} {size}
+          {title}
         </Heading>
-        <Box height={size !== 'small' && 'small'}>
+        <Box height="40%" justify="center">
           <Text>{text}</Text>
         </Box>
+        {cards && cards}
         {button && button}
       </Box>
     )}

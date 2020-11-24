@@ -6,9 +6,10 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import ServiceCard from '../components/service-card'
 import Contact from '../components/contact'
+import IconText from '../components/icon-text'
 
 import { Box, Button, Heading, Text, Tabs, Tab } from 'grommet'
-import { CatalogOption } from 'grommet-icons'
+import { CatalogOption, Cpu } from 'grommet-icons'
 
 const ServicesPage = () => {
   const image = useStaticQuery(graphql`
@@ -55,10 +56,13 @@ const ServicesPage = () => {
         /> */}
         <Box
           background="black"
-          height="medium"
+          round="small"
+          pad="medium"
+          margin="medium"
           align="center"
           justify="center"
           direction="row"
+          wrap
         >
           <Heading>we make it simple</Heading>
           <Box width="medium">
@@ -78,47 +82,57 @@ const ServicesPage = () => {
           fill
         >
           <ServiceCard
-            title="Edu Services"
-            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.
-              Banh mi banjo hammock small batch whatever williamsburg adaptogen
-              four loko quinoa XOXO wayfarers franzen."
-            image={image.services.childImageSharp.fluid}
-            button={
-              <Link to="/blog">
-                <Button>See this</Button>
-              </Link>
+            title="Educational Services"
+            text={`Our passion is rooted deeply in educating others. 
+            By combining our knowledge and experience with our "Simplexology" 
+            approach we can help you and those you are educating.`}
+            cards={
+              <Box align="left" justify="center">
+                <IconText icon={<Cpu />} text="STEM/STEAM Curriculm" />
+                <IconText icon={<Cpu />} text="Teaching Code" />
+                <IconText icon={<Cpu />} text="Program Development" />
+                <IconText icon={<Cpu />} text="Teaching Resources" />
+              </Box>
             }
           />
           <ServiceCard
-            title="Bus Services"
-            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice."
-            image={image.services.childImageSharp.fluid}
-            button={
-              <Link to="/blog">
-                <Button>See this</Button>
-              </Link>
+            title="Business Services"
+            text={`Our unique industry experience combined with our "Simplexology" approach allow us to provide
+            valuable consulting services across a broad range to help your business succeed`}
+            cards={
+              <Box align="left" justify="center">
+                <IconText icon={<Cpu />} text="Operational Efficiencies" />
+                <IconText icon={<Cpu />} text="Product Development" />
+                <IconText icon={<Cpu />} text="Project Management" />
+                <IconText icon={<Cpu />} text="Team Culture" />
+              </Box>
             }
           />
           <ServiceCard
-            title="Web Services"
-            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok"
-            image={image.services.childImageSharp.fluid}
-            button={
-              <Link to="/blog">
-                <Button>See this</Button>
-              </Link>
+            title="Web Development Services"
+            text={`We love all things web! We are all over the latest trends in tech and want to help you expand
+            your web presence by picking the right tool for the job.`}
+            cards={
+              <Box align="left" justify="center">
+                <IconText icon={<Cpu />} text="Website/Application Development" />
+                <IconText icon={<Cpu />} text="Deployment Management" />
+                <IconText icon={<Cpu />} text="Domain Management" />
+                <IconText icon={<Cpu />} text="Tech Stack Selection" />
+              </Box>
             }
           />
           <ServiceCard
             title="Idea Services"
-            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok"
-            image={image.services.childImageSharp.fluid}
-            button={
-              <Link to="/blog">
-                <Button>See this</Button>
-              </Link>
+            text={`Need help exploring a new idea? We're always open to exploring ideas, even if they seem
+            crazy 🤪. One of our favorite activities is watching something go from Idea > Reality.
+            `}
+            cards={
+              <Box align="left" justify="center">
+                <IconText icon={<Cpu />} text="Brainstorming" />
+                <IconText icon={<Cpu />} text="Second Opinion (Or Third)" />
+                <IconText icon={<Cpu />} text="Domain Management" />
+                <IconText icon={<Cpu />} text="Technology Advisory Services" />
+              </Box>
             }
           />
         </Box>

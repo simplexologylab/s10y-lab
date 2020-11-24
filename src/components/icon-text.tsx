@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default ({ icon, text }: Props) => (
-  <Box direction="row" gap="medium">
+  <Box direction="row" justify="left" gap="small" pad="xsmall">
     {icon}
     <Text>{text}</Text>
   </Box>

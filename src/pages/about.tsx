@@ -15,11 +15,14 @@ const StyledParagraph = styled(Paragraph)`
   font-family: 'Cousine';
   font-size: 1.2rem;
   line-height: 1.2;
+  max-width: 800px;
+  padding: 10px;
 `
 
 const SpecialText = styled(Text)`
   color: #228be6;
   font-weight: bold;
+  font-size: 1.3rem;
 `
 
 const AboutPage = () => {
@@ -45,7 +48,15 @@ const AboutPage = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Box animation="fadeIn">
+      <Box
+        animation="fadeIn"
+        pad="small"
+        margin="medium"
+        align="center"
+        background="dark-1"
+        round="small"
+        elevation="small"
+      >
         <Mission />
       </Box>
 

@@ -51,7 +51,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="" />
       <Box
         margin="small"
         background="white"
