@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react'
 
-import { Box, Text } from "grommet"
+import { Box, Text } from 'grommet'
 
 interface Props {
   icon: any

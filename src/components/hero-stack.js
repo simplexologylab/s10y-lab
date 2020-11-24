@@ -1,7 +1,7 @@
-import React from "react"
-import { Heading, Stack, Box } from "grommet"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import React from 'react'
+import { Heading, Stack, Box } from 'grommet'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 const HeroBox = styled(Box)`
   object-fit: cover;
@@ -14,7 +14,7 @@ const HeroImage = styled(Img)`
 `
 
 const HeroHeading = styled(Heading)`
-  font-family: "Ubuntu";
+  font-family: 'Ubuntu';
   color: #595959;
   font-size: 10vh;
   line-height: 70px;

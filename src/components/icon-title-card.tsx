@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import { Box, Heading, Text } from "grommet"
+import { Box, Heading, Text } from 'grommet'
 
 interface Props {
   title: string
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const IconTitleCard = ({ title, text, icon }: Props) => (
-  <Box pad="medium" width={{ max: "250px" }} align="center" gap="small">
+  <Box pad="medium" width={{ max: '250px' }} align="center" gap="small">
     {icon}
     <Heading level={4} margin="none">
       {title}

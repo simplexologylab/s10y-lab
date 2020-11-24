@@ -1,11 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import { HoverGrow } from "../components/animations"
-import SEO from "../components/seo"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import Layout from '../components/layout'
+import { HoverGrow } from '../components/animations'
+import SEO from '../components/seo'
 
-import { ResponsiveContext, Box, Text } from "grommet"
+import { ResponsiveContext, Box, Text } from 'grommet'
 
 const BlogPage = ({ data }) => {
   return (
@@ -25,7 +25,7 @@ const BlogPage = ({ data }) => {
             <Box gap="small" animation="fadeIn">
               {data.pages.nodes.map(({ id, frontmatter, fields }) => (
                 <Box
-                  width={size !== "small" && "large"}
+                  width={size !== 'small' && 'large'}
                   gap="small"
                   pad="small"
                   key={id}
@@ -38,7 +38,7 @@ const BlogPage = ({ data }) => {
                       {frontmatter.title}
                     </Text>
                   </Link>
-                  {size === "small" ? (
+                  {size === 'small' ? (
                     <Box gap="small" direction="row">
                       <Box width="70vw">
                         <Text size="small">{frontmatter.description}</Text>
@@ -51,18 +51,18 @@ const BlogPage = ({ data }) => {
                       </Box>
                     </Box>
                   ) : (
-                      <Box direction="row" gap="small">
-                        <Box width="medium">
-                          <Text size="small">{frontmatter.description}</Text>
-                        </Box>
-                        <Box width="medium">
-                          <Img
-                            key={id}
-                            fluid={frontmatter.image.childImageSharp.fluid}
-                          />
-                        </Box>
+                    <Box direction="row" gap="small">
+                      <Box width="medium">
+                        <Text size="small">{frontmatter.description}</Text>
                       </Box>
-                    )}
+                      <Box width="medium">
+                        <Img
+                          key={id}
+                          fluid={frontmatter.image.childImageSharp.fluid}
+                        />
+                      </Box>
+                    </Box>
+                  )}
                 </Box>
               ))}
             </Box>
@@ -71,7 +71,7 @@ const BlogPage = ({ data }) => {
                 <Box height="small" width="medium">
                   <Img
                     fluid={data.lightbulb.childImageSharp.fluid}
-                    imgStyle={{ objectFit: "contain" }}
+                    imgStyle={{ objectFit: 'contain' }}
                   />
                 </Box>
               </HoverGrow>

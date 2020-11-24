@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import { Box, Button, Layer } from "grommet"
+import { Box, Button, Layer } from 'grommet'
 
 interface Props {
   text: string
@@ -16,14 +16,14 @@ const ContactCard = ({ text, detail }: Props) => {
   return (
     <Box
       fill
-      pad={{ horizontal: "medium", vertical: "large" }}
+      pad={{ horizontal: 'medium', vertical: 'large' }}
       background="dark-1"
       align="center"
       justify="center"
       elevation="small"
       round="xsmall"
       onClick={openDetail}
-      hoverIndicator={{ color: "brand" }}
+      hoverIndicator={{ color: 'brand' }}
     >
       {text}
       {showDetail && (

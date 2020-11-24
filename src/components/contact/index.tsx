@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react'
 
-import Social from "./social"
-import ContactCard from "./card"
-import ContactForm from "./contact-form"
+import Social from './social'
+import ContactCard from './card'
+import ContactForm from './contact-form'
 
-import { Grid, Box, Heading } from "grommet"
+import { Grid, Box, Heading } from 'grommet'
 
 const Contact = () => (
   <Box fill pad="small">
@@ -15,7 +15,7 @@ const Contact = () => (
       gap="small"
       pad="large"
       justify="center"
-      columns={{ count: 2, size: "auto" }}
+      columns={{ count: 2, size: 'auto' }}
     >
       <ContactCard
         text="You want to see if we can help you"

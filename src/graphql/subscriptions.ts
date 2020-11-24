@@ -15,7 +15,7 @@ export const onCreateContact = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
 export const onUpdateContact = /* GraphQL */ `
   subscription OnUpdateContact {
     onUpdateContact {
@@ -29,7 +29,7 @@ export const onUpdateContact = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
 export const onDeleteContact = /* GraphQL */ `
   subscription OnDeleteContact {
     onDeleteContact {
@@ -43,4 +43,4 @@ export const onDeleteContact = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`

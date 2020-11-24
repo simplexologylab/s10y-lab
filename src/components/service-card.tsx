@@ -1,8 +1,8 @@
-import React from "react"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import React from 'react'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
-import { Box, Heading, Text, ResponsiveContext } from "grommet"
+import { Box, Heading, Text, ResponsiveContext } from 'grommet'
 
 interface Props {
   title: string
@@ -20,12 +20,12 @@ const ServiceCard = ({ title, text, button }: Props) => (
         gap="small"
         margin="xsmall"
         elevation="medium"
-        width={size !== "small" && "medium"}
+        width={size !== 'small' && 'medium'}
       >
         <Heading level={3} margin="xsmall">
           {title} {size}
         </Heading>
-        <Box height={size !== "small" && "small"}>
+        <Box height={size !== 'small' && 'small'}>
           <Text>{text}</Text>
         </Box>
         {button && button}

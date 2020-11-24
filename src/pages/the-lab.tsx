@@ -1,11 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout"
-import ProjectDisplay from "../components/project-display"
+import Layout from '../components/layout'
+import ProjectDisplay from '../components/project-display'
 
-import { Box, Text } from "grommet"
+import { Box, Text } from 'grommet'
 
 const TheLabPage = ({ data }: any) => (
   <Layout>

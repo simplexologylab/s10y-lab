@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { API, graphqlOperation } from "aws-amplify"
+import React, { useState } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
 
 import {
   Form,
@@ -9,11 +9,11 @@ import {
   TextArea,
   Box,
   Button,
-  Heading,
-} from "grommet"
-import { MailOption, User } from "grommet-icons"
+  Heading
+} from 'grommet'
+import { MailOption, User } from 'grommet-icons'
 
-import { createContact as CreateContact } from "../../graphql/mutations"
+import { createContact as CreateContact } from '../../graphql/mutations'
 
 interface Props {
   type?: string
@@ -21,9 +21,9 @@ interface Props {
 }
 
 const defaultValues = {
-  name: "",
-  email: "",
-  message: "",
+  name: '',
+  email: '',
+  message: ''
 }
 
 const ContactForm = ({ type, message }: Props) => {
@@ -35,8 +35,8 @@ const ContactForm = ({ type, message }: Props) => {
     try {
       const contactInfo = {
         type: type,
-        contactList: type === "mailList" ? true : false,
-        ...event.value,
+        contactList: type === 'mailList' ? true : false,
+        ...event.value
       }
 
       const createContact = await API.graphql(
@@ -46,7 +46,7 @@ const ContactForm = ({ type, message }: Props) => {
       setSuccess(createContact)
     } catch (error) {
       setError(`There was an error, please email us directly @`)
-      console.log("error: ", error)
+      console.log('error: ', error)
     }
   }
 
@@ -75,11 +75,11 @@ const ContactForm = ({ type, message }: Props) => {
           icon={<MailOption size="small" />}
           reverse
           mask={[
-            { regexp: /^[\w\-_.]+$/, placeholder: "example" },
-            { fixed: "@" },
-            { regexp: /^[\w]+$/, placeholder: "my" },
-            { fixed: "." },
-            { regexp: /^[\w]+$/, placeholder: "com" },
+            { regexp: /^[\w\-_.]+$/, placeholder: 'example' },
+            { fixed: '@' },
+            { regexp: /^[\w]+$/, placeholder: 'my' },
+            { fixed: '.' },
+            { regexp: /^[\w]+$/, placeholder: 'com' }
           ]}
         />
       </FormField>

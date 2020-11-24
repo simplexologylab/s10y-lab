@@ -1,13 +1,13 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react'
 
-import { Box, Button, Heading, Text } from "grommet"
-import { MailOption, Twitter, Instagram, Github } from "grommet-icons"
+import { Box, Button, Heading, Text } from 'grommet'
+import { MailOption, Twitter, Instagram, Github } from 'grommet-icons'
 
 export default ({ elevate }: Props) => (
   <Box
     direction="row-responsive"
     justify="evenly"
-    elevation={elevate && "small"}
+    elevation={elevate && 'small'}
     pad="large"
     gap="medium"
   >

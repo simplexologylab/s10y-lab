@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { Box, Heading } from "grommet"
-import styled from "styled-components"
+import React, { useState, useEffect } from 'react'
+import { Box, Heading } from 'grommet'
+import styled from 'styled-components'
 
 const TypedHeading = styled(Heading)`
-  font-family: "VT323";
+  font-family: 'VT323';
   color: #92e600;
   font-size: 3rem;
 `
@@ -38,7 +38,7 @@ export default ({ text, duration, delay }: Props) => {
         width="4px"
         height="45px"
         background="#92E600"
-        animation={end === text.length && "fadeOut"}
+        animation={end === text.length && 'fadeOut'}
       />
     </Box>
   )

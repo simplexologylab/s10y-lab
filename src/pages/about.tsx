@@ -1,18 +1,18 @@
-import React from "react"
-import SEO from "../components/seo"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import SEO from '../components/seo'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Layout from "../components/layout"
-import Contact from "../components/contact"
-import Typer from "../components/typer"
-import TextImage from "../components/text-image"
-import Mission from "../components/mission"
+import Layout from '../components/layout'
+import Contact from '../components/contact'
+import Typer from '../components/typer'
+import TextImage from '../components/text-image'
+import Mission from '../components/mission'
 
-import { Box, Paragraph, Heading, Text } from "grommet"
+import { Box, Paragraph, Heading, Text } from 'grommet'
 
 const StyledParagraph = styled(Paragraph)`
-  font-family: "Cousine";
+  font-family: 'Cousine';
   font-size: 1.2rem;
   line-height: 1.2;
 `

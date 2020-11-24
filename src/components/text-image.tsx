@@ -1,7 +1,7 @@
-import React from "react"
-import { Box, Grid, Paragraph, Heading, ResponsiveContext } from "grommet"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import React from 'react'
+import { Box, Grid, Paragraph, Heading, ResponsiveContext } from 'grommet'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 const RoundedImageLeft = styled(Img)`
   border-radius: 25px 0px 0px 25px;
@@ -27,18 +27,18 @@ interface Props {
 export default ({ title, text, image, textSize, flip, background }: Props) => (
   <ResponsiveContext.Consumer>
     {size => (
-      <Box background={background && background} fill pad={{ bottom: "small" }}>
+      <Box background={background && background} fill pad={{ bottom: 'small' }}>
         <Grid
           fill
           columns={{
-            count: size === "small" ? 1 : 2,
-            size: "auto",
+            count: size === 'small' ? 1 : 2,
+            size: 'auto'
           }}
         >
           {flip ? (
             <>
               <Box justify="center">
-                {size === "small" ? (
+                {size === 'small' ? (
                   <Img fluid={image} />
                 ) : (
                   <RoundedImageRight fluid={image} />
@@ -68,7 +68,7 @@ export default ({ title, text, image, textSize, flip, background }: Props) => (
                 </Paragraph>
               </Box>
               <Box justify="center">
-                {size === "small" ? (
+                {size === 'small' ? (
                   <Img fluid={image} />
                 ) : (
                   <RoundedImageLeft fluid={image} />

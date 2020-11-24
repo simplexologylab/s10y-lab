@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import { Box, Heading, Paragraph } from "grommet"
+import { Box, Heading, Paragraph } from 'grommet'
 
 interface Props {
   title: string

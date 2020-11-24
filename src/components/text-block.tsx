@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
-import { Box, Heading, Text, Button } from "grommet"
+import { Box, Heading, Text, Button } from 'grommet'
 
 interface Props {
   title: string

@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { Box, Heading, Button, Text, ResponsiveContext } from "grommet"
-import styled from "styled-components"
+import React, { useState } from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Box, Heading, Button, Text, ResponsiveContext } from 'grommet'
+import styled from 'styled-components'
 
-import { Help } from "grommet-icons"
+import { Help } from 'grommet-icons'
 
 const MainHeading = styled(Heading)`
-  font-family: "Rokkitt";
+  font-family: 'Rokkitt';
   font-weight: 100;
 `
 
@@ -44,7 +44,7 @@ const ProjectDisplay = () => {
   return (
     <ResponsiveContext.Consumer>
       {size => {
-        if (size !== "small") {
+        if (size !== 'small') {
           return (
             <Box
               direction="row"
@@ -61,7 +61,7 @@ const ProjectDisplay = () => {
                   width="xsmall"
                   height="4px"
                   background="accent-1"
-                  margin={{ vertical: "small" }}
+                  margin={{ vertical: 'small' }}
                 />
                 <Box
                   width="large"
@@ -75,9 +75,9 @@ const ProjectDisplay = () => {
                       key={id}
                       href={frontmatter.link}
                       target="_blank"
-                      margin={{ bottom: "small" }}
+                      margin={{ bottom: 'small' }}
                       label={frontmatter.title}
-                      hoverIndicator={{ color: "accent-1" }}
+                      hoverIndicator={{ color: 'accent-1' }}
                     />
                   ))}
                 </Box>
@@ -111,20 +111,20 @@ const ProjectDisplay = () => {
                       href={frontmatter.link}
                       target="_blank"
                       label={frontmatter.title}
-                      hoverIndicator={{ color: "accent-1" }}
+                      hoverIndicator={{ color: 'accent-1' }}
                     />
                   ))}
                 </Box>
               ) : (
-                  <Box width="medium" justify="center" pad="medium">
-                    <Text>
-                      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                <Box width="medium" justify="center" pad="medium">
+                  <Text>
+                    {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Etiam ac lectus nec enim semper tincidunt. Phasellus et tempor 
                     nulla, quis euismod lectus. Vivamus varius imperdiet sapien eu 
                     eleifend.`}
-                    </Text>
-                  </Box>
-                )}
+                  </Text>
+                </Box>
+              )}
             </Box>
           )
         }

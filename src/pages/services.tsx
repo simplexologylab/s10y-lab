@@ -1,14 +1,14 @@
-import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import { useStaticQuery, Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-import ServiceCard from "../components/service-card"
-import Contact from "../components/contact"
+import SEO from '../components/seo'
+import Layout from '../components/layout'
+import ServiceCard from '../components/service-card'
+import Contact from '../components/contact'
 
-import { Box, Button, Heading, Text, Tabs, Tab } from "grommet"
-import { CatalogOption } from "grommet-icons"
+import { Box, Button, Heading, Text, Tabs, Tab } from 'grommet'
+import { CatalogOption } from 'grommet-icons'
 
 const ServicesPage = () => {
   const image = useStaticQuery(graphql`
@@ -64,7 +64,7 @@ const ServicesPage = () => {
           <Box width="medium">
             <Img
               fluid={image.tools.childImageSharp.fluid}
-              imgStyle={{ objectFit: "contain" }}
+              imgStyle={{ objectFit: 'contain' }}
             />
           </Box>
         </Box>
@@ -73,7 +73,7 @@ const ServicesPage = () => {
           wrap
           align="center"
           justify="center"
-          pad={{ vertical: "large" }}
+          pad={{ vertical: 'large' }}
           background="white"
           fill
         >
@@ -124,7 +124,7 @@ const ServicesPage = () => {
         </Box>
         <Box
           pad="medium"
-          margin={{ vertical: "large" }}
+          margin={{ vertical: 'large' }}
           align="center"
           width="large"
         >

@@ -9,7 +9,7 @@ exports.onCreateNode = ({ node, getNode, actions, reporter }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: slug
     })
   }
 }
@@ -35,8 +35,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: path.resolve(`./src/templates/project-template.tsx`),
       context: {
-        id: node.id,
-      },
+        id: node.id
+      }
     })
   })
 
@@ -58,8 +58,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: path.resolve(`./src/templates/project-template.tsx`),
       context: {
-        id: node.id,
-      },
+        id: node.id
+      }
     })
   })
 }

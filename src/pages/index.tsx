@@ -1,22 +1,22 @@
-import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
-import styled from "styled-components"
-import Img from "gatsby-image"
+import React from 'react'
+import { useStaticQuery, Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout"
-import IconTitleCard from "../components/icon-title-card"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import IconTitleCard from '../components/icon-title-card'
+import SEO from '../components/seo'
 
-import Mission from "../components/mission"
-import ProjectDisplay from "../components/project-display"
+import Mission from '../components/mission'
+import ProjectDisplay from '../components/project-display'
 
-import { Box, Grid, Heading, Text, Button } from "grommet"
-import Contact from "../components/contact"
+import { Box, Grid, Heading, Text, Button } from 'grommet'
+import Contact from '../components/contact'
 
-import { Deploy } from "grommet-icons"
+import { Deploy } from 'grommet-icons'
 
 const SiteLink = styled(Link)`
-  font-family: "Rokkitt";
+  font-family: 'Rokkitt';
   text-decoration: none;
   color: gray;
 
@@ -26,7 +26,7 @@ const SiteLink = styled(Link)`
 `
 
 const MainHeading = styled(Heading)`
-  font-family: "Ubuntu";
+  font-family: 'Ubuntu';
 `
 
 const IndexPage = () => {
@@ -66,7 +66,7 @@ const IndexPage = () => {
             Stop struggling with making the best technology for your business,
             classroom, or even personal hobbies. Leverage our years of
             experience implementing technology solutions to amplify your ideas
-            into reality.{" "}
+            into reality.{' '}
           </Text>
         </Box>
       </Box>
@@ -94,7 +94,7 @@ const IndexPage = () => {
           width="large"
           gap="medium"
           animation="slideRight"
-          border={{ color: "dark-1", size: "large", side: "top" }}
+          border={{ color: 'dark-1', size: 'large', side: 'top' }}
         >
           <Heading level={2}>we make content</Heading>
           <Box direction="row" align="center">
@@ -102,7 +102,7 @@ const IndexPage = () => {
               alignContent="center"
               width="medium"
               pad="small"
-              border={{ color: "accent-1", size: "medium", side: "right" }}
+              border={{ color: 'accent-1', size: 'medium', side: 'right' }}
             >
               <Text textAlign="end">
                 We believe in leaving the world a better place than we found it.
@@ -114,7 +114,7 @@ const IndexPage = () => {
             <Box height="small" width="small">
               <Img
                 fluid={image.lightbulb.childImageSharp.fluid}
-                imgStyle={{ objectFit: "contain" }}
+                imgStyle={{ objectFit: 'contain' }}
               />
             </Box>
           </Box>
@@ -126,17 +126,22 @@ const IndexPage = () => {
           width="large"
           gap="medium"
           animation="slideLeft"
-          border={{ color: "dark-1", size: "large", side: "top" }}
+          border={{ color: 'dark-1', size: 'large', side: 'top' }}
         >
           <Heading level={2}>we help others</Heading>
           <Box direction="row" align="center">
             <Box height="small" width="small">
               <Img
                 fluid={image.choice.childImageSharp.fluid}
-                imgStyle={{ objectFit: "contain" }}
+                imgStyle={{ objectFit: 'contain' }}
               />
             </Box>
-            <Box alignContent="center" width="medium" pad="small" border={{ color: "accent-1", size: "medium", side: "left" }}>
+            <Box
+              alignContent="center"
+              width="medium"
+              pad="small"
+              border={{ color: 'accent-1', size: 'medium', side: 'left' }}
+            >
               <Text textAlign="start">
                 When it comes to technology there are so many options it is
                 often overwhelming to make a choice. We want to help by offering

@@ -1,52 +1,30 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
+import React from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { ResponsiveContext, Button, Box } from "grommet"
+import { Box } from 'grommet'
 
-import NavLink from "./nav-link"
+import NavLink from './nav-link'
+import './layout.css'
 
-const NavBox = styled(Box)`  
+const NavBox = styled(Box)`
   border-top: 4px dashed gray;
-  border-bottom: 8px solid #FFC600;
-  box-shadow: 0px 3px 6px #ffc800;
-  padding: 10px;
+  border-bottom: 4px dashed gray;
+  padding: 6px;
   margin: 10px 0px;
 `
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(false)
   return (
-    <ResponsiveContext.Consumer>
-      {size => {
-        return (
-          <NavBox justify="center" align="center">
-            <Box
-              direction="row"
-              gap="large"
-              wrap
-              align="center"
-              justify="center"
-            >
-              <NavLink link="/blog" pre="the" text="Blog" />
-              <NavLink link="/the-lab" pre="find us in" text="The Lab" />
-              <NavLink link="/about" pre="more" text="About Us" />
-              <NavLink link="/services" pre="check out our" text="Services" />
-              {/* <NavLink link="/contact" pre="if you need to" text="Contact Us" /> */}
-            </Box>
-            <Link to="/contact">
-              <Button
-                label="Contact Us"
-                margin="small"
-                hoverIndicator
-                primary
-              />
-            </Link>
-          </NavBox>
-        )
-      }}
-    </ResponsiveContext.Consumer>
+    <NavBox justify="center" align="center">
+      <Box direction="row" wrap gap="medium" align="center" justify="center">
+        <NavLink link="/blog" pre="the" text="Blog" />
+        <NavLink link="/the-lab" pre="find us in" text="The Lab" />
+        <NavLink link="/about" pre="more" text="About Us" />
+        <NavLink link="/services" pre="check out our" text="Services" />
+        <NavLink link="/contact" pre="if you need to" text="Contact Us" />
+      </Box>
+    </NavBox>
   )
 }
 

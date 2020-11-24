@@ -15,7 +15,7 @@ export const getContact = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
 export const listContacts = /* GraphQL */ `
   query ListContacts(
     $filter: ModelContactFilterInput
@@ -36,4 +36,4 @@ export const listContacts = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
