@@ -9,9 +9,6 @@ import { Box, Text } from 'grommet'
 
 const TheLabPage = ({ data }: any) => (
   <Layout>
-    <Box fill>
-      <Img fluid={data.image.childImageSharp.fluid} />
-    </Box>
     <Box background="white" fill align="center" pad="small">
       <Box
         elevation="medium"
@@ -33,7 +30,7 @@ const TheLabPage = ({ data }: any) => (
     >
       <Box gap="small" animation="fadeIn">
         {data.projects.nodes.map(({ id, frontmatter, fields }: any) => (
-          <Box width="large" gap="small" pad="small" key={id}>
+          <Box width="large" gap="small" pad="medium" key={id}>
             <Text color="dark-3" size="small">
               {frontmatter.date}
             </Text>
@@ -42,6 +39,7 @@ const TheLabPage = ({ data }: any) => (
                 {frontmatter.title}
               </Text>
             </Link>
+            <p>{frontmatter.tech && <p>{frontmatter.tech}</p>}</p>
             <Box direction="row-responsive" gap="small">
               <Box width="medium">
                 <Text>{frontmatter.description}</Text>
@@ -75,6 +73,7 @@ export const query = graphql`
           title
           description
           date
+          tech
           image {
             childImageSharp {
               fluid(maxWidth: 600) {
@@ -90,7 +89,7 @@ export const query = graphql`
     }
     image: file(relativePath: { eq: "lab-science.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1280) {
+        fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid
         }
       }

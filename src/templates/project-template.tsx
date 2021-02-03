@@ -17,7 +17,7 @@ interface Props {
 export default ({ data: { mdx } }: Props) => {
   return (
     <Layout>
-      <Box fill background="white">
+      <Box fill background="white" pad="medium">
         <Heading size="small">{mdx.frontmatter.title}</Heading>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
