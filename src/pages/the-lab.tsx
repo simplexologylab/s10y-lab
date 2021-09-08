@@ -9,9 +9,9 @@ import { Box, Text } from 'grommet'
 
 const TheLabPage = ({ data }: any) => (
   <Layout>
-    <Box fill>
+    {/* <Box fill>
       <Img fluid={data.image.childImageSharp.fluid} />
-    </Box>
+    </Box> */}
     <Box background="white" fill align="center" pad="small">
       <Box
         elevation="medium"
