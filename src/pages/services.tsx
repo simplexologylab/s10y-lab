@@ -130,7 +130,6 @@ const ServicesPage = () => {
               <Box align="left" justify="center">
                 <IconText icon={<Cpu />} text="Brainstorming" />
                 <IconText icon={<Cpu />} text="Second Opinion (Or Third)" />
-                <IconText icon={<Cpu />} text="Domain Management" />
                 <IconText icon={<Cpu />} text="Technology Advisory Services" />
               </Box>
             }
