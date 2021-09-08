@@ -75,8 +75,8 @@ const BlogPage = ({ data }) => {
                   />
                 </Box>
               </HoverGrow>
-              <Box width="medium" pad="small" elevation="small" round="small">
-                asdsafd
+              <Box width="medium" pad="medium" elevation="small" round="small">
+                Something about what this is goes here ...
               </Box>
             </Box>
           </Box>

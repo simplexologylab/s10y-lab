@@ -55,7 +55,7 @@ const ProjectDisplay = () => {
             >
               <Box pad="small">
                 <MainHeading level={2} margin="none" color="accent-1">
-                  Explore our projects
+                  Explore our recent projects
                 </MainHeading>
                 <Box
                   width="xsmall"
@@ -67,8 +67,6 @@ const ProjectDisplay = () => {
                   width="large"
                   gap="medium"
                   pad="small"
-                  direction="row-responsive"
-                  wrap
                 >
                   {data.projects.nodes.map(({ id, frontmatter }) => (
                     <Button
