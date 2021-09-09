@@ -18,7 +18,7 @@ export const createContact = /* GraphQL */ `
       updatedAt
     }
   }
-`
+`;
 export const updateContact = /* GraphQL */ `
   mutation UpdateContact(
     $input: UpdateContactInput!
@@ -35,7 +35,7 @@ export const updateContact = /* GraphQL */ `
       updatedAt
     }
   }
-`
+`;
 export const deleteContact = /* GraphQL */ `
   mutation DeleteContact(
     $input: DeleteContactInput!
@@ -52,4 +52,4 @@ export const deleteContact = /* GraphQL */ `
       updatedAt
     }
   }
-`
+`;
